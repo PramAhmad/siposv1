@@ -1,13 +1,12 @@
-<template lang="">
-    <div>
-        
-    </div>
-</template>
 <script setup>
-const supabase = useSupabaseAuthClient()
-console.log(supabase)
-// looping suapabse 
+// import LayoutGuest from '@/layouts/LayoutGuest.vue'
+// ...
 </script>
-<style lang="">
-    
-</style>
+
+<template>
+  <div>
+    <NuxtLayout>
+      <!-- ... -->
+    </NuxtLayout>
+  </div>
+</template>
