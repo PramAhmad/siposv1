@@ -4,7 +4,7 @@ import { darkModeKey, styleKey } from '@/config.js'
 
 useHead({
   titleTemplate: (titleChunk) => {
-    const titleBase = 'Admin One Vue 3 Tailwind'
+    const titleBase = 'Information System'
     
     return titleChunk ? `${titleChunk} - ${titleBase}` : titleBase
   }

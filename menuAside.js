@@ -26,24 +26,27 @@ export default [
     icon: mdiResponsive,
   },
   {
-    to: "/",
-    label: "Styles",
+    to: "/event",
+    label: "Event",
     icon: mdiPalette,
   },
   {
-    to: "/profile",
-    label: "Profile",
+    to: "/masukan",
+    label: "Masukan",
     icon: mdiAccountCircle,
   },
+
   {
-    to: "/login",
-    label: "Login",
-    icon: mdiLock,
-  },
-  {
-    to: "/error",
-    label: "Error",
-    icon: mdiAlertCircle,
+    label: "Mahasiwa",
+    icon: mdiViewList,
+    menu: [
+      {
+        label: "List Mahasiswa",
+      },
+      {
+        label: "Tambah Mahasiswa  ",
+      },
+    ],
   },
   {
     label: "Kas",
@@ -57,16 +60,5 @@ export default [
       },
     ],
   },
-  {
-    href: "https://github.com/justboil/admin-one-vue-tailwind",
-    label: "GitHub",
-    icon: mdiGithub,
-    target: "_blank",
-  },
-  {
-    href: "https://github.com/justboil/admin-one-react-tailwind",
-    label: "React version",
-    icon: mdiReact,
-    target: "_blank",
-  },
+  
 ];
