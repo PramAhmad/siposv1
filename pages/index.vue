@@ -5,8 +5,11 @@
 
 <template>
   <div>
+    <!-- <Head>
+            <Title>ROAST - Home</Title>
+         </Head> -->
     <NuxtLayout>
-      <!-- ... -->
+      
     </NuxtLayout>
   </div>
 </template>
