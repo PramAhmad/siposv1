@@ -19,24 +19,10 @@ export default [
     icon: mdiMonitor,
     label: "Dashboard",
   },
+ 
   {
-    to: "/tables",
-    label: "Tables",
-    icon: mdiTable,
-  },
-  {
-    to: "/forms",
-    label: "Forms",
-    icon: mdiSquareEditOutline,
-  },
-  {
-    to: "/ui",
-    label: "UI",
-    icon: mdiTelevisionGuide,
-  },
-  {
-    to: "/responsive",
-    label: "Responsive",
+    to: "/activity",
+    label: "Activity",
     icon: mdiResponsive,
   },
   {
@@ -60,14 +46,14 @@ export default [
     icon: mdiAlertCircle,
   },
   {
-    label: "Dropdown",
+    label: "Kas",
     icon: mdiViewList,
     menu: [
       {
-        label: "Item One",
+        label: "Bayar Kas",
       },
       {
-        label: "Item Two",
+        label: "List Kas",
       },
     ],
   },

@@ -1,13 +1,15 @@
-<template >
-    <div>
-        
-    </div>
-</template>
-<script>
-export default {
-    
-}
+<script setup>
+// import LayoutGuest from '@/layouts/LayoutGuest.vue'
+// ...
 </script>
-<style lang="">
-    
-</style>
+
+<template>
+  <div>
+    <!-- <Head>
+            <Title>ROAST - Home</Title>
+         </Head> -->
+    <NuxtLayout>
+      
+    </NuxtLayout>
+  </div>
+</template>
