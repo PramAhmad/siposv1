@@ -22,13 +22,16 @@ import CardBoxComponentEmpty from "@/components/CardBoxComponentEmpty.vue";
 const isModalActive = ref(false);
 const isModalDangerActive = ref(false);
 const mahasiswa = ref([]);
+const loading = ref(false)
 const supabase = useSupabaseClient();
 const getMahasiswa = async ()=>{
+  loading.value = false
     const { data, error } = await supabase
     .from('mahasiswa')
     .select()
     .order('npm', { ascending: true })
     mahasiswa.value = data
+    loading.value = true
 }
 const deleteMahasiswa = async (id)=>{
     const { data, error } = await supabase
@@ -61,25 +64,32 @@ onMounted(()=>{
                     <th>No</th>
                     <th>Npm</th>
                     <th>Nama</th>
+                    <th>Foto</th>
                     <th>Kelas</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody >
-                <tr v-for="data in mahasiswa" :key="data.id">
+                <tr v-if="!loading">
+                    <td colspan="6" class="text-center">
+                        <div class="flex justify-center items-center">
+                            <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr v-for="data,i in mahasiswa" :key="data.id">
 
-                    <td data-label="no">{{ data.id }}</td>
+                    <td data-label="no">{{ i+1 }}</td>
                     <td data-label="npm">{{ data.npm }}</td>
+                   
                     <td data-label="nama">{{ data.nama }}</td>
+                    <td>
+                      <img :src="data.foto" alt="" class="w-[100px] h-[130px]">
+                    </td>
                     <td data-label="kelas">{{ data.kelas }}</td>
                     <td class="before:hidden lg:w-1 whitespace-nowrap">
+                      <NuxtLink :to="`/admin/mahasiswa/`+data.id" >detail</NuxtLink>
                         <BaseButtons type="justify-start lg:justify-end" no-wrap>
-                            <BaseButton
-                            color="info"
-                            :icon="mdiEye"
-                            small
-                            @click="isModalActive = true"
-                            />
                             <BaseButton
                             color="danger"
                             :icon="mdiTrashCan"
