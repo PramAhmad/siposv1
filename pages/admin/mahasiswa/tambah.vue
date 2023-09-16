@@ -16,17 +16,13 @@ import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.
 import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
 // import { FotoMahasiswa } from ".nuxt/components";
 
-const selectOptions = [
-  { id: 1, label: "A" },
-  { id: 2, label: "B" },
-  { id: 3, label: "C" },
-];
+
 const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/")
 const fotopath = ref()
 const urlfoto = ref(url.value+fotopath.value)
 const name = ref('')
 const npm = ref('')
-const kelas = ref('')
+const kelas = ref()
 
 
 const alert = ref(false)
@@ -39,7 +35,7 @@ const submit = async () => {
       kelas: kelas.value,
       foto: url.value+fotopath.value
     })
-    console.log(url.value+fotopath.value)
+    // console.log(url.value+fotopath.value)
     alert.value = true
     navigateTo("/admin/mahasiswa")
     if(error){
