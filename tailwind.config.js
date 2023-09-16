@@ -50,6 +50,16 @@ module.exports = {
       },
     },
   },
+  // custom color code
+  colors: {
+    'primary': '#0094FF',
+    'secondary':  '#FAFF00',
+    'accent': '#1E40AF',
+    'info': '#1E40AF',
+    'warning': '#1E40AF',
+    'error': '#1E40AF',
+    'success': '#1E40AF',
+  },
   plugins: [
     require("@tailwindcss/forms"),
     plugin(function ({ matchUtilities, theme }) {
