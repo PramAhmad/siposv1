@@ -34,11 +34,18 @@ const getMahasiswa = async ()=>{
     loading.value = true
 }
 const deleteMahasiswa = async (id)=>{
+  if(confirm('Yakin ingin menghapus data?')){
+
     const { data, error } = await supabase
     .from('mahasiswa')
     .delete()
     .match({ id: id })
     getMahasiswa()
+  }
+  else{
+    alert('data tidak jadi dihapus')
+  
+  }
 }
 onMounted(()=>{
     getMahasiswa()

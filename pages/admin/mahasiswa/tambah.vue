@@ -17,31 +17,65 @@ import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
 // import { FotoMahasiswa } from ".nuxt/components";
 
 
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/")
-const fotopath = ref()
-const urlfoto = ref(url.value+fotopath.value)
-const name = ref('')
-const npm = ref('')
-const kelas = ref()
+const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
+const fotopath = ref();
 
+const name = ref('');
+const npm = ref('');
+const kelas = ref('');
 
-const alert = ref(false)
-const supabase = useSupabaseClient()
-const submit = async () => {
-   alert.value = false
-    const {data,error} = await supabase.from('mahasiswa').insert({
-      nama: name.value,
-      npm: npm.value,
-      kelas: kelas.value,
-      foto: url.value+fotopath.value
-    })
-    // console.log(url.value+fotopath.value)
-    alert.value = true
-    navigateTo("/admin/mahasiswa")
-    if(error){
-      console.log(error)
+const alert = ref(false);
+const supabase = useSupabaseClient();
+
+const sendToDiscord = async (message) => {
+
+  const discordWebhookURL = "https://discord.com/api/webhooks/1152545570272059478/Q6imkAWcj5LQo0j0s19kmyvlCx4B_SvcJc1oaiOGq9zNrGtEdGzuyX1J22MdF2VS0t1_";
+
+  const data = {
+    content: message,
+  };
+
+  try {
+    const response = await fetch(discordWebhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      console.log("Pesan berhasil dikirim ke Discord");
+    } else {
+      console.error("Gagal mengirim pesan ke Discord");
     }
+  } catch (error) {
+    console.error("Gagal mengirim pesan ke Discord:", error);
+  }
 };
+
+const submit = async () => {
+  alert.value = false;
+
+  const { data, error } = await supabase.from('mahasiswa').insert({
+    nama: name.value,
+    npm: npm.value,
+    kelas: kelas.value,
+    foto: url.value + fotopath.value
+  });
+
+  alert.value = true;
+
+  if (error) {
+    console.log(error);
+  } else {
+
+    const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${url.value + fotopath.value}`;
+    sendToDiscord(messageToDiscord);
+    navigateTo("/admin/mahasiswa");
+  }
+};
+
 
 </script>
 
