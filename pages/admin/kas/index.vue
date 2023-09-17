@@ -1,5 +1,5 @@
 <template>
-    <div>
+    
         <NuxtLayout name="authenticated">
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiTableBorder" title="Kas Kelas B" main>
@@ -57,7 +57,7 @@
      
     </SectionMain>
   </NuxtLayout>
-    </div>
+    
 </template>
 <script setup>
 import {

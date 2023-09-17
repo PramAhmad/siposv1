@@ -1,20 +1,13 @@
 <script setup>
-import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail, mdiGithub } from "@mdi/js";
+import { mdiBallotOutline, mdiAccount, mdiGithub } from "@mdi/js";
 import SectionMain from "@/components/SectionMain.vue";
 import CardBox from "@/components/CardBox.vue";
-import FormCheckRadioGroup from "@/components/FormCheckRadioGroup.vue";
-import FormFilePicker from "@/components/FormFilePicker.vue";
 import FormField from "@/components/FormField.vue";
 import FormControl from "@/components/FormControl.vue";
-import BaseDivider from "@/components/BaseDivider.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitle from "@/components/SectionTitle.vue";
-// import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-// import { FotoMahasiswa } from ".nuxt/components";
+
 
 
 const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
@@ -81,22 +74,13 @@ const submit = async () => {
 
 <template>
   <NuxtLayout name="authenticated">
-    <!-- flash message -->
+ 
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiBallotOutline"
         title="Tambah Mahasiswa"
         main
       >
-        <BaseButton
-          href="https://github.com/justboil/admin-one-vue-tailwind"
-          target="_blank"
-          :icon="mdiGithub"
-          label="Star on GitHub"
-          color="contrast"
-          rounded-full
-          small
-        />
       </SectionTitleLineWithButton>
       <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
         <p class="font-bold">Tambah Mahasiswa</p>
@@ -104,9 +88,7 @@ const submit = async () => {
       </div>
       <CardBox>
         <form @submit.prevent="submit">
-          <!-- csrf token -->
-          <input type="hidden" name="_token" value="csrf_token_here">
-
+         
           <FormField label="Nama dan Kelas">
             <FormControl v-model="name" placeholder="Your Name" :icon="mdiAccount" />
             <!-- Use a dropdown menu for selecting kelas -->

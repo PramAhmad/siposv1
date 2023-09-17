@@ -1,24 +1,17 @@
 <script setup>
 import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail, mdiGithub } from "@mdi/js";
+import { mdiBallotOutline, mdiAccount, mdiMail } from "@mdi/js";
 import SectionMain from "@/components/SectionMain.vue";
 import CardBox from "@/components/CardBox.vue";
-import FormCheckRadioGroup from "@/components/FormCheckRadioGroup.vue";
-import FormFilePicker from "@/components/FormFilePicker.vue";
+
 import FormField from "@/components/FormField.vue";
 import FormControl from "@/components/FormControl.vue";
-import BaseDivider from "@/components/BaseDivider.vue";
+
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitle from "@/components/SectionTitle.vue";
-// import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
 import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-// import { FotoMahasiswa } from ".nuxt/components";
 
-
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
-const fotopath = ref();
 
 const mahasiswa = ref();
 const total_bayar = ref('');
@@ -86,7 +79,6 @@ const submit = async () => {
     return;
   }
 
-  // Menghitung berapa kali mahasiswa telah membayar
   const jumlahPembayaran = kasData.length + 1;
   
   const { data, error } = await supabase.from('kas').insert({
