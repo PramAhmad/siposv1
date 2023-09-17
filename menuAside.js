@@ -15,7 +15,7 @@ import {
 
 export default [
   {
-    to: "/dashboard",
+    to: "/admin",
     icon: mdiMonitor,
     label: "Dashboard",
   },
@@ -41,9 +41,11 @@ export default [
     icon: mdiViewList,
     menu: [
       {
+        to: "/admin/mahasiswa",
         label: "List Mahasiswa",
       },
       {
+        to: "/admin/mahasiswa/tambah",
         label: "Tambah Mahasiswa  ",
       },
     ],

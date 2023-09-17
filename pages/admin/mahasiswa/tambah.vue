@@ -1,68 +1,86 @@
 <script setup>
-import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail, mdiGithub } from "@mdi/js";
+import { mdiBallotOutline, mdiAccount, mdiGithub } from "@mdi/js";
 import SectionMain from "@/components/SectionMain.vue";
 import CardBox from "@/components/CardBox.vue";
-import FormCheckRadioGroup from "@/components/FormCheckRadioGroup.vue";
-import FormFilePicker from "@/components/FormFilePicker.vue";
 import FormField from "@/components/FormField.vue";
 import FormControl from "@/components/FormControl.vue";
-import BaseDivider from "@/components/BaseDivider.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitle from "@/components/SectionTitle.vue";
-// import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
 import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-// import { FotoMahasiswa } from ".nuxt/components";
 
 
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/")
-const fotopath = ref()
-const urlfoto = ref(url.value+fotopath.value)
-const name = ref('')
-const npm = ref('')
-const kelas = ref()
 
+const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
+const fotopath = ref();
 
-const alert = ref(false)
-const supabase = useSupabaseClient()
-const submit = async () => {
-   alert.value = false
-    const {data,error} = await supabase.from('mahasiswa').insert({
-      nama: name.value,
-      npm: npm.value,
-      kelas: kelas.value,
-      foto: url.value+fotopath.value
-    })
-    // console.log(url.value+fotopath.value)
-    alert.value = true
-    navigateTo("/admin/mahasiswa")
-    if(error){
-      console.log(error)
+const name = ref('');
+const npm = ref('');
+const kelas = ref('');
+
+const alert = ref(false);
+const supabase = useSupabaseClient();
+
+const sendToDiscord = async (message) => {
+
+  const discordWebhookURL = "https://discord.com/api/webhooks/1152545570272059478/Q6imkAWcj5LQo0j0s19kmyvlCx4B_SvcJc1oaiOGq9zNrGtEdGzuyX1J22MdF2VS0t1_";
+
+  const data = {
+    content: message,
+  };
+
+  try {
+    const response = await fetch(discordWebhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      console.log("Pesan berhasil dikirim ke Discord");
+    } else {
+      console.error("Gagal mengirim pesan ke Discord");
     }
+  } catch (error) {
+    console.error("Gagal mengirim pesan ke Discord:", error);
+  }
 };
+
+const submit = async () => {
+  alert.value = false;
+
+  const { data, error } = await supabase.from('mahasiswa').insert({
+    nama: name.value,
+    npm: npm.value,
+    kelas: kelas.value,
+    foto: url.value + fotopath.value
+  });
+
+  alert.value = true;
+
+  if (error) {
+    console.log(error);
+  } else {
+
+    const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${url.value + fotopath.value}`;
+    sendToDiscord(messageToDiscord);
+    navigateTo("/admin/mahasiswa");
+  }
+};
+
 
 </script>
 
 <template>
   <NuxtLayout name="authenticated">
-    <!-- flash message -->
+ 
     <SectionMain>
       <SectionTitleLineWithButton
         :icon="mdiBallotOutline"
         title="Tambah Mahasiswa"
         main
       >
-        <BaseButton
-          href="https://github.com/justboil/admin-one-vue-tailwind"
-          target="_blank"
-          :icon="mdiGithub"
-          label="Star on GitHub"
-          color="contrast"
-          rounded-full
-          small
-        />
       </SectionTitleLineWithButton>
       <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
         <p class="font-bold">Tambah Mahasiswa</p>
@@ -70,9 +88,7 @@ const submit = async () => {
       </div>
       <CardBox>
         <form @submit.prevent="submit">
-          <!-- csrf token -->
-          <input type="hidden" name="_token" value="csrf_token_here">
-
+         
           <FormField label="Nama dan Kelas">
             <FormControl v-model="name" placeholder="Your Name" :icon="mdiAccount" />
             <!-- Use a dropdown menu for selecting kelas -->

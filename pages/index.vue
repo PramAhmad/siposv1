@@ -9,7 +9,7 @@
             <Title>ROAST - Home</Title>
          </Head> -->
     <NuxtLayout>
-      
+     
     </NuxtLayout>
   </div>
 </template>

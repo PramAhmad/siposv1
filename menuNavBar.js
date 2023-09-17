@@ -37,11 +37,7 @@ export default [
   {
     isCurrentUser: true,
     menu: [
-      {
-        icon: mdiAccount,
-        label: "My Profile",
-        to: "/profile",
-      },
+   
       {
         icon: mdiCogOutline,
         label: "Settings",

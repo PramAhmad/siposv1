@@ -24,6 +24,7 @@
     "@mdi/js": "^7.2.96",
     "@pinia/nuxt": "^0.4.11",
     "@supabase/supabase-js": "^2.33.1",
+    "axios": "^1.5.0",
     "chart.js": "^4.4.0",
     "numeral": "^2.0.6",
     "pinia": "^2.1.6"
