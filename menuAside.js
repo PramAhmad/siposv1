@@ -21,12 +21,12 @@ export default [
   },
  
   {
-    to: "/activity",
+    to: "/admin/activity",
     label: "Activity",
     icon: mdiResponsive,
   },
   {
-    to: "/event",
+    to: "/admin/event",
     label: "Event",
     icon: mdiPalette,
   },
@@ -55,9 +55,11 @@ export default [
     icon: mdiViewList,
     menu: [
       {
+        to: "/admin/kas/tambah",
         label: "Bayar Kas",
       },
       {
+        to: "/admin/kas", 
         label: "List Kas",
       },
     ],
