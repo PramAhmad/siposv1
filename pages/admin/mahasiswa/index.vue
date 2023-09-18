@@ -53,13 +53,11 @@ onMounted(()=>{
 <template>
   <NuxtLayout name="authenticated">
     <SectionMain>
-      <SectionTitleLineWithButton :icon="mdiTableBorder" title="Mahasiswa" main>
-        <NuxtLink to="/admin/mahasiswa/tambah" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Tambah Mahasiswa</NuxtLink>
+      <SectionTitleLineWithButton :icon="mdiAccount" main  title="Mahasiswa" >
+        
+        <NuxtLink to="/admin/mahasiswa/tambah" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Add Mahasiswa</NuxtLink>
       </SectionTitleLineWithButton>
-      <NotificationBar color="info" :icon="mdiMonitorCellphone">
-        <b>Responsive table.</b> Collapses on mobile
-      </NotificationBar>
-
+   
       <CardBox class="mb-6" has-table>
         <table>
             <thead>
@@ -91,16 +89,19 @@ onMounted(()=>{
                       <img :src="data.foto" alt="" class="w-[100px] h-[130px]">
                     </td>
                     <td data-label="kelas">{{ data.kelas }}</td>
-                    <td class="before:hidden lg:w-1 whitespace-nowrap">
-                      <NuxtLink :to="`/admin/mahasiswa/`+data.id" >detail</NuxtLink>
+                    <td class="before:hidden lg:w-1 whitespace-nowrap ">
+                      <div class="flex gap-3">
+
+                        <NuxtLink class="py-1 px-2 rounded-md border "  :to="`/admin/mahasiswa/`+data.id" >detail</NuxtLink>
                         <BaseButtons type="justify-start lg:justify-end" no-wrap>
-                            <BaseButton
-                            color="danger"
-                            :icon="mdiTrashCan"
-                            small
-                            @click="deleteMahasiswa(data.id)"
-                            />
-                        </BaseButtons>
+                              <BaseButton
+                              color="danger"
+                              :icon="mdiTrashCan"
+                              small
+                              @click="deleteMahasiswa(data.id)"
+                              />
+                          </BaseButtons>
+                      </div>
                     </td>
                 </tr>
             </tbody>
