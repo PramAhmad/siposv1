@@ -1,125 +1,140 @@
-<template>
-    
-    <NuxtLayout name="authenticated">
-<SectionMain>
-  <SectionTitleLineWithButton :icon="mdiTableBorder" title="Kas Kelas B" main>
-    <NuxtLink to="/admin/kas/tambah" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Bayar Kas</NuxtLink>
-  </SectionTitleLineWithButton>
-  <NotificationBar color="info" :icon="mdiMonitorCellphone">
-    <b>Responsive table.</b> Collapses on mobile
-  </NotificationBar>
-
-  <CardBox class="mb-6" has-table>
-    <table>
-        <thead>
-
-            <tr>
-                <th>No</th>
-                <th>Nama Mahasiswa</th>
-                <th>Kelas</th>
-                <th>Jumlah Bayar</th>
-                <th>Tanggal Bayar</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr v-if="!loading">
-                <td colspan="6" class="text-center">
-                    <div class="flex justify-center items-center">
-                        <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
-                    </div>
-                </td>
-            </tr>
-            <tr v-for="data,i in kas" :key="data.id">
-
-                <td data-label="no">{{ i+1 }}</td>
-                <td data-label="nama">{{ data.mahasiswa_id.nama }}</td>
-               
-                <td data-label="kelas">{{ data.mahasiswa_id.kelas }}</td>
-            
-                <td data-label="jumlah bayar">Rp. {{ data.total_bayar }}</td>
-                <td data-label="jumlah bayar">{{ data.tanggal_bayar }}</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                    <BaseButtons type="justify-start lg:justify-end" no-wrap>
-                        <BaseButton
-                        color="danger"
-                        :icon="mdiTrashCan"
-                        small
-                        @click="deleteMahasiswa(data.id)"
-                        />
-                    </BaseButtons>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-  </CardBox>
-
- 
-</SectionMain>
-</NuxtLayout>
-
-</template>
 <script setup>
+import { reactive } from "vue";
+import { useMainStore } from "@/stores/main";
 import {
-mdiMonitorCellphone,
-mdiTableBorder,
-
-mdiTrashCan,
-
+  mdiAccount,
+  mdiMail,
+  mdiAsterisk,
+  mdiFormTextboxPassword,
+  mdiGithub,
 } from "@mdi/js";
 import SectionMain from "@/components/SectionMain.vue";
-import NotificationBar from "@/components/NotificationBar.vue";
-
 import CardBox from "@/components/CardBox.vue";
-
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
+import BaseDivider from "@/components/BaseDivider.vue";
+import FormField from "@/components/FormField.vue";
+import FormControl from "@/components/FormControl.vue";
+import FormFilePicker from "@/components/FormFilePicker.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
-const kas = ref([])
-const loading = ref(false)
-const supabase  = useSupabaseClient()
-const getKas = async ()=>{
-loading.value = false
-const {data,error} = await supabase.from('kas').select("total_bayar,tanggal_bayar,mahasiswa_id(nama,kelas)")
-.order('id', { ascending: false }) 
-if(error){
-    console.log(error)
-}
-kas.value = data.map((item) => ({
-...item,
-tanggal_bayar: formatDateCustom(item.tanggal_bayar),
-}));
-loading.value = true
-}
-const deleteMahasiswa = async (id)=>{
-const {data,error} = await supabase.from('kas').delete().match({id:id})
-if(error){
-    console.log(error)
-}else{
-    getKas()
-}
-}
-// Fungsi untuk mengonversi format tanggal
-const formatDateCustom = (dateString) => {
-const date = new Date(dateString);
-const monthNames = [
-"Januari", "Februari", "Maret",
-"April", "Mei", "Juni", "Juli",
-"Agustus", "September", "Oktober",
-"November", "Desember"
-];
+import UserCard from "@/components/UserCard.vue";
+// import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
+import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
 
-const day = date.getDate();
-const monthIndex = date.getMonth();
-const year = date.getFullYear();
+const mainStore = useMainStore();
 
-const monthName = monthNames[monthIndex];
+const profileForm = reactive({
+  name: mainStore.userName,
+  email: mainStore.userEmail,
+});
 
-return `${day} ${monthName} ${year}`;
+const passwordForm = reactive({
+  password_current: "",
+  password: "",
+  password_confirmation: "",
+});
+
+const submitProfile = () => {
+  mainStore.setUser(profileForm);
 };
 
-
-onMounted(()=>{
-getKas()
-})
+const submitPass = () => {
+  //
+};
 </script>
+
+<template>
+  <NuxtLayout name="authenticated">
+    <SectionMain>
+      <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
+       
+      </SectionTitleLineWithButton>
+
+      <UserCard class="mb-6" />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <CardBox is-form @submit.prevent="submitProfile">
+          <FormField label="Avatar" help="Max 500kb">
+            <FormFilePicker label="Upload" />
+          </FormField>
+
+          <FormField label="Name" help="Required. Your name">
+            <FormControl
+              v-model="profileForm.name"
+              :icon="mdiAccount"
+              name="username"
+              required
+              autocomplete="username"
+            />
+          </FormField>
+          <FormField label="E-mail" help="Required. Your e-mail">
+            <FormControl
+              v-model="profileForm.email"
+              :icon="mdiMail"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </FormField>
+
+          <template #footer>
+            <BaseButtons>
+              <BaseButton color="info" type="submit" label="Submit" />
+              <BaseButton color="info" label="Options" outline />
+            </BaseButtons>
+          </template>
+        </CardBox>
+
+        <CardBox is-form @submit.prevent="submitPass">
+          <FormField
+            label="Current password"
+            help="Required. Your current password"
+          >
+            <FormControl
+              v-model="passwordForm.password_current"
+              :icon="mdiAsterisk"
+              name="password_current"
+              type="password"
+              required
+              autocomplete="current-password"
+            />
+          </FormField>
+
+          <BaseDivider />
+
+          <FormField label="New password" help="Required. New password">
+            <FormControl
+              v-model="passwordForm.password"
+              :icon="mdiFormTextboxPassword"
+              name="password"
+              type="password"
+              required
+              autocomplete="new-password"
+            />
+          </FormField>
+
+          <FormField
+            label="Confirm password"
+            help="Required. New password one more time"
+          >
+            <FormControl
+              v-model="passwordForm.password_confirmation"
+              :icon="mdiFormTextboxPassword"
+              name="password_confirmation"
+              type="password"
+              required
+              autocomplete="new-password"
+            />
+          </FormField>
+
+          <template #footer>
+            <BaseButtons>
+              <BaseButton type="submit" color="info" label="Submit" />
+              <BaseButton color="info" label="Options" outline />
+            </BaseButtons>
+          </template>
+        </CardBox>
+      </div>
+    </SectionMain>
+  </NuxtLayout>
+</template>
