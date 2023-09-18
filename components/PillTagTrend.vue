@@ -49,5 +49,6 @@ const trendStyle = computed(() => {
     :color="trendStyle.style"
     :icon="trendStyle.icon"
     :small="small"
+    class="text-slate-950 dark:text-white"
   />
 </template>

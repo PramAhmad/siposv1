@@ -51,15 +51,7 @@ const transactionBarItems = computed(() => mainStore.history);
           title="Overview"
           main
         >
-          <BaseButton
-            href="https://github.com/justboil/admin-one-vue-tailwind"
-            target="_blank"
-            :icon="mdiGithub"
-            label="Star on GitHub"
-            color="contrast"
-            rounded-full
-            small
-          />
+        
         </SectionTitleLineWithButton>
   
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 mb-6">
