@@ -35,7 +35,11 @@ export default [
     label: "Masukan",
     icon: mdiAccountCircle,
   },
-
+  {
+    to: "/admin/payment",
+    label: "Payment",
+    icon: mdiAccountCircle,
+  },
   {
     label: "Mahasiwa",
     icon: mdiViewList,
@@ -50,19 +54,6 @@ export default [
       },
     ],
   },
-  {
-    label: "Kas",
-    icon: mdiViewList,
-    menu: [
-      {
-        to: "/admin/kas/tambah",
-        label: "Bayar Kas",
-      },
-      {
-        to: "/admin/kas", 
-        label: "List Kas",
-      },
-    ],
-  },
+
   
 ];
