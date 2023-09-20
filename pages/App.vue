@@ -1,6 +1,8 @@
 <script setup>
 import { useStyleStore } from "@/stores/style.js";
 import { darkModeKey, styleKey } from "@/config.js";
+import { useStyleStore } from "@/stores/style.js";
+import { darkModeKey, styleKey } from "@/config.js";
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -11,19 +13,19 @@ useHead({
 });
 
 const styleStore = useStyleStore();
+const styleStore = useStyleStore();
 
 const currentStyle =
   typeof localStorage !== "undefined" && localStorage[styleKey]
     ? localStorage[styleKey]
-    : "dark"; // Ganti "dark" dengan style mode gelap Anda jika ada
+    : "basic";
 
-
+styleStore.setStyle(currentStyle);
 styleStore.setStyle(currentStyle);
 
 const currentStoredDarkMode =
-  typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1"
-    ? true
-    : true;
+  typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1";
+
 if (
   (!currentStoredDarkMode &&
     typeof window !== "undefined" &&
@@ -36,8 +38,9 @@ if (
 
 <template>
   <div>
-    <NuxtLayout class="">
+    <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
+

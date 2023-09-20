@@ -4,10 +4,12 @@
 
 <template>
   <div id="body" class="px-16">
-   
+    <!-- <Head>
+            <Title>ROAST - Home</Title>
+         </Head> -->
     <NuxtLayout>
       <nav class="w-full flex justify-around items-center h-16">
-        <img src="@/assets/image/silogo.png" class="w-13 h-13" />
+        <img src="/silogo.png" class="w-13 h-13" />
         <ul class="flex justify-between gap-10 cursor-pointer">
           <li class="text-[#63B4FF]"><a>Beranda</a></li>
           <li><a>Aktivias</a></li>
@@ -15,8 +17,11 @@
           <li><a>Mahasiswa</a></li>
           <li><a>Masukkan</a></li>
         </ul>
-        <input type="to">
-       
+        <button
+          class="rounded-full focus:outline-none hover:bg-gray-200 bg-[#B4B4B4] w-24 h-10"
+        >
+          <div class="rounded-full w-8 h-8 bg-[#FFE500] mx-1"></div>
+        </button>
       </nav>
 
       <!-- Main section -->
@@ -34,13 +39,22 @@
             </p>
           </div>
 
-    
-          <!-- <img src="home.png" class="basis-1/2" /> -->
+          <!-- <div class="basis-1/2"> 
+            G
+          </div> -->
+          <img src="/img home.png" class="basis-1/2" />
         </div>
       </section>
     </NuxtLayout>
   </div>
 </template>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+
+#body {
+  font-family: "Poppins", sans-serif;
+}
+</style>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
 
