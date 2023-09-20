@@ -26,9 +26,16 @@ if ((!currentStoredDarkMode && typeof window !== 'undefined' && window.matchMedi
 </script>
 
 <template>
-  <div>
+  <div id="temp">
     <NuxtLayout >
       <NuxtPage/>
     </NuxtLayout>
   </div>
 </template>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+  #temp{
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
