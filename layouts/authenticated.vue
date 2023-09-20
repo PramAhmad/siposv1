@@ -1,4 +1,5 @@
 <script setup>
+
 import { mdiForwardburger, mdiBackburger, mdiMenu } from "@mdi/js";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
@@ -13,8 +14,10 @@ import NavBarItemPlain from "@/components/NavBarItemPlain.vue";
 import AsideMenu from "@/components/AsideMenu.vue";
 import FooterBar from "@/components/FooterBar.vue";
 
+const user = useSupabaseUser()
+
 useMainStore().setUser({
-  name: "John Doe",
+  name: user.value.email,
   email: "john@example.com",
   avatar:
     "https://avatars.dicebear.com/api/avataaars/example.svg?options[top][]=shortHair&options[accessoriesChance]=93",
@@ -43,6 +46,7 @@ const menuClick = (event, item) => {
     //
   }
 };
+
 </script>
 
 <template>

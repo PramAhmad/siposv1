@@ -54,9 +54,9 @@ onMounted(() => {
        
       </SectionTitleLineWithButton>
 
-      <MahasiswaCard class="mb-6" />
-
+      
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
+        <MahasiswaCard class="mb-6" />
         <CardBox is-form @submit.prevent="updateMahasiswa">
           <FormField label="New Profile" help="Max 500kb">
             <FotoMahasiswa v-model:path="fotopath"/>

@@ -31,6 +31,19 @@ const menuClick = (event, item) => {
 const asideLgCloseClick = (event) => {
   emit("aside-lg-close-click", event);
 };
+const supabase = useSupabaseClient();
+const user = useSupabaseUser()
+console.log(user)
+const Logout = async()=>
+{
+  const { error } = await supabase.auth.signOut()
+  if(error){
+    console.log(error)
+  }
+  else{
+    navigateTo('/admin/login')
+  }
+}
 </script>
 
 <template>
@@ -70,7 +83,7 @@ const asideLgCloseClick = (event) => {
       </div>
 
       <ul>
-        <AsideMenuItem :item="logoutItem" @menu-click="menuClick" />
+        <AsideMenuItem :item="logoutItem" @click="Logout" class="bg-blue-600"/>
       </ul>
     </div>
   </aside>

@@ -18,8 +18,21 @@ const total_bayar = ref('');
 const mahasiswas = ref([])
 const alert = ref(false);
 const supabase = useSupabaseClient();
-
-
+const $route = useRoute()
+const room = ref([])
+const getInfoRoom = async ()=>{
+const { data, error } = await supabase
+  .from('room_payment')
+    .select('id,nama_pembayaran, desc')
+    .eq("id", $route.params.room)
+if (error) {
+    console.log(error)
+    
+}
+else {
+    room.value = data
+}
+}
 const getMahasiswa = async ()=>{
 
         const { data, error } = await supabase
@@ -68,25 +81,13 @@ const submit = async () => {
     return;
   }
   
-
-  const { data: kasData, error: kasError } = await supabase
-    .from('kas')
-    .select('*')
-    .eq('mahasiswa_id', mahasiswaId);
-  
-  if (kasError) {
-    console.error(kasError);
-    return;
-  }
-
-  const jumlahPembayaran = kasData.length + 1;
-  
-  const { data, error } = await supabase.from('kas').insert({
-    mahasiswa_id: mahasiswa.value,
+  const  {data,error} =  await supabase.from('payment').insert({
+    mahasiswa_id: mahasiswaId,
+    payment_id: 1,
     total_bayar: total_bayar.value,
-  });
-
-  alert.value = true;
+    tanggal_bayar: new Date().toLocaleDateString()
+  })
+  
 
   if (error) {
     console.log(error);
@@ -97,9 +98,13 @@ const submit = async () => {
     navigateTo("/admin/kas");
   }
 };
-
+const reset = async ()=>{
+  mahasiswa.value = ''
+  total_bayar.value = ''
+}
 onMounted(()=>{
     getMahasiswa()
+    getInfoRoom()
 })
 </script>
 
@@ -107,17 +112,18 @@ onMounted(()=>{
   <NuxtLayout name="authenticated">
     <!-- flash message -->
     <SectionMain>
-      <SectionTitleLineWithButton
-        :icon="mdiBallotOutline"
-        title="Bayar Kas"
-        main
-      >
-     
-      </SectionTitleLineWithButton>
-      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
-        <p class="font-bold">Tambah Mahasiswa</p>
+      <div v-for="r in room" :key="r.id">
+    <SectionTitleLineWithButton :icon="mdiTableBorder" :title="`payment ` + r.nama_pembayaran" main>
+      <NuxtLink :to="`/admin/payment/${r.id}/tambah`" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Bayar payment</NuxtLink>
+    </SectionTitleLineWithButton>
+    
+
+    </div>
+      <!-- <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
+        <p class="font-bold">{{ $route.params.room  }}
+        </p>
         <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
-      </div>
+      </div> -->
       <CardBox>
         <form @submit.prevent="submit">
             <NotificationBarInCard
@@ -137,7 +143,7 @@ onMounted(()=>{
           <div>
             <BaseButtons>
               <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>
-              <BaseButton type="reset" color="info" outline label="Reset" />
+              <BaseButton @click="reset" color="info" outline label="Reset" />
             </BaseButtons>
           </div>
         </form>

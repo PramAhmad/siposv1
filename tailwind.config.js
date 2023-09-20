@@ -57,7 +57,7 @@ module.exports = {
     'accent': '#1E40AF',
     'info': '#1E40AF',
     'warning': '#1E40AF',
-    'error': '#1E40AF',
+    'danger': '#dc2626',
     'success': '#1E40AF',
   },
   plugins: [
