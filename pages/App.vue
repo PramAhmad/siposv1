@@ -1,41 +1,41 @@
 <script setup>
-import { useStyleStore } from '@/stores/style.js'
-import { darkModeKey, styleKey } from '@/config.js'
+import { useStyleStore } from "@/stores/style.js";
+import { darkModeKey, styleKey } from "@/config.js";
 
 useHead({
   titleTemplate: (titleChunk) => {
-    const titleBase = 'Information System'
-    
-    return titleChunk ? `${titleChunk} - ${titleBase}` : titleBase
-  }
-})
+    const titleBase = "Information System";
 
-const styleStore = useStyleStore()
+    return titleChunk ? `${titleChunk} - ${titleBase}` : titleBase;
+  },
+});
 
-const currentStyle = typeof localStorage !== 'undefined' && localStorage[styleKey] 
-  ? localStorage[styleKey]
-  : 'basic'
+const styleStore = useStyleStore();
 
-styleStore.setStyle(currentStyle)
+const currentStyle =
+  typeof localStorage !== "undefined" && localStorage[styleKey]
+    ? localStorage[styleKey]
+    : "basic";
 
-const currentStoredDarkMode = typeof localStorage !== 'undefined' && localStorage[darkModeKey] === '1'
+styleStore.setStyle(currentStyle);
 
-if ((!currentStoredDarkMode && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) || currentStoredDarkMode) {
-  styleStore.setDarkMode(true)
+const currentStoredDarkMode =
+  typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1";
+
+if (
+  (!currentStoredDarkMode &&
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+  currentStoredDarkMode
+) {
+  styleStore.setDarkMode(true);
 }
 </script>
 
 <template>
-  <div id="temp">
-    <NuxtLayout >
-      <NuxtPage/>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
-  #temp{
-    font-family: 'Poppins', sans-serif;
-  }
-</style>
