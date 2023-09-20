@@ -20,9 +20,9 @@ onMounted(()=>{
 
 <template>
   <CardBox v-for="data in mahasiswa" :key="data.id">
-    <BaseLevel type="justify-around lg:justify-center">
+    <BaseLevel type="justify-around lg:justify-center h-full">
       <img :src="data.foto" 
-      class=" block h-full w-full bg-clip-content    max-w-full bg-gray-100 dark:bg-slate-800 lg:mx-12"
+      class=" block h-full min-w-[300px] bg-clip-content  max-w-full bg-gray-100 dark:bg-slate-800 lg:mx-12"
        alt="">
       <div class="space-y-3 text-center md:text-left lg:mx-12">
         <div class="flex justify-center md:block">
