@@ -151,3 +151,12 @@ onMounted(()=>{
     </SectionMain>
   </NuxtLayout>
 </template>
+
+<style>
+.pram{
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+</style>
