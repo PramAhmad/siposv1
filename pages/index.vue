@@ -7,7 +7,7 @@
    
     <NuxtLayout>
       <nav class="w-full flex justify-around items-center h-16">
-        <img src="@/assets/logo/silogo.png" class="w-13 h-13" />
+        <img src="@/assets/image/silogo.png" class="w-13 h-13" />
         <ul class="flex justify-between gap-10 cursor-pointer">
           <li class="text-[#63B4FF]"><a>Beranda</a></li>
           <li><a>Aktivias</a></li>
