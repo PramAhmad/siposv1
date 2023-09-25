@@ -1,13 +1,10 @@
 <script setup>
-// import LayoutGuest from '@/layouts/LayoutGuest.vue'
-// ...
+
 </script>
 
 <template>
   <div id="body" class="px-16">
-    <!-- <Head>
-            <Title>ROAST - Home</Title>
-         </Head> -->
+   
     <NuxtLayout>
       <nav class="w-full flex justify-around items-center h-16">
         <img src="/silogo.png" class="w-13 h-13" />
@@ -18,11 +15,8 @@
           <li><a>Mahasiswa</a></li>
           <li><a>Masukkan</a></li>
         </ul>
-        <button
-          class="rounded-full focus:outline-none hover:bg-gray-200 bg-[#B4B4B4] w-24 h-10"
-        >
-          <div class="rounded-full w-8 h-8 bg-[#FFE500] mx-1"></div>
-        </button>
+        <input type="to">
+       
       </nav>
 
       <!-- Main section -->
@@ -40,9 +34,7 @@
             </p>
           </div>
 
-          <!-- <div class="basis-1/2"> 
-            G
-          </div> -->
+    
           <img src="/img home.png" class="basis-1/2" />
         </div>
       </section>

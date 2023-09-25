@@ -15,7 +15,9 @@ const nama = ref()
 const npm = ref()
 const kelas = ref()
 const supabase = useSupabaseClient()
+const payment = ref([])
 const $route = useRoute()
+const loading = ref(false)
 const updateMahasiswa = async()=>{
     // validate jika isinya kosong maka field tidak terupdate
  
@@ -42,7 +44,18 @@ const getSingleMahasiswa = async() => {
         console.log(error)
     }
 }
+const getMahasiswaPayment = async()=>{
+  loading.value = false
+  const {data,error } =  await supabase.from("payment").select("tanggal_bayar,mahasiswa_id(nama,kelas),total_bayar,payment_id(nama_pembayaran)").eq('mahasiswa_id',$route.params.id)
+  if (error) {
+    console.log(error)
+  } else {
+    payment.value = data
+    loading.value = true
+  }
+}
 onMounted(() => {
+  getMahasiswaPayment()
     getSingleMahasiswa()
 })
 </script>
@@ -98,10 +111,56 @@ onMounted(() => {
       
           <BaseDivider />
 
-         
+          
+          
+        </div>
+        <SectionTitleLineWithButton :icon="mdiAccount" main  title="Pembayaran yang sudah di lakukan" >
+        
+        <!-- <NuxtLink to="/admin/mahasiswa/tambah" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Add Mahasiswa</NuxtLink> -->
+      </SectionTitleLineWithButton>
+        <CardBox class="mb-6" has-table>
+      <table>
+          <thead>
 
-       
-      </div>
+              <tr>
+                  <th>No</th>
+                  <th>Nama Mahasiswa</th>
+                  <th>Kelas</th>
+                  <th>Tanggal bayar</th>
+                  <th>Total bayar</th>
+                  <th>Nama Pembayaran</th>
+              
+              </tr>
+          </thead>
+          <tbody >
+            
+              <tr v-for="data,i in payment" :key="data.id">
+
+                  <td data-label="no">{{ i+1 }}</td>
+                  <td data-label="nama">{{ data.mahasiswa_id.nama }}</td>
+                 
+                  <td data-label="kelas">{{ data.mahasiswa_id.kelas }}</td>
+               
+                  <td data-label="tanggal bayar">{{ data.tanggal_bayar }}</td>
+                  <td data-label="Nama Pembayaran">{{ data.payment_id.nama_pembayaran }}</td>
+                  <td class="before:hidden lg:w-1 whitespace-nowrap ">
+                    <div class="flex gap-3">
+
+                      <NuxtLink class="py-1 px-2 rounded-md border "  :to="`/admin/mahasiswa/`+data.id" >detail</NuxtLink>
+                      <BaseButtons type="justify-start lg:justify-end" no-wrap>
+                            <BaseButton
+                            color="danger"
+                            :icon="mdiTrashCan"
+                            small
+                            @click="deleteMahasiswa(data.id)"
+                            />
+                        </BaseButtons>
+                    </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </CardBox>
     </SectionMain>
   </NuxtLayout>
 </template>

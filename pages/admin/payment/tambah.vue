@@ -16,7 +16,6 @@ import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
 
 const supabase = useSupabaseClient();
 
-const room = ref([])
 const nama = ref()
 const desc = ref()
 
@@ -58,11 +57,7 @@ const reset = async ()=>{
     </SectionTitleLineWithButton>
     
 
-      <!-- <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
-        <p class="font-bold">{{ $route.params.room  }}
-        </p>
-        <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
-      </div> -->
+   
       <CardBox>
         <form @submit.prevent="submit">
             <NotificationBarInCard
