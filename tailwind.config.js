@@ -26,6 +26,9 @@ module.exports = {
       flexGrow: {
         5: "5",
       },
+      height: {
+          mhs: "430px"
+      },
       maxHeight: {
         "screen-menu": "calc(100vh - 3.5rem)",
         modal: "calc(100vh - 160px)",
