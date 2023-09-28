@@ -73,18 +73,23 @@ const sendToDiscord = async (message) => {
 const submit = async () => {
   alert.value = false;
 
+  const mahasiswaId = mahasiswa.value;
+  const selectedMahasiswa = mahasiswas.value.find(mahasiswa => mahasiswa.id === mahasiswaId);
   
+  if (!selectedMahasiswa) {
+    console.error("Mahasiswa tidak ditemukan");
+    return;
+  }
   
   const  {data,error} =  await supabase.from('payment').insert({
-    mahasiswa_id: mahasiswa.value,
+    mahasiswa_id: mahasiswaId,
     payment_id: $route.params.room,
     total_bayar: total_bayar.value,
-   
+    tanggal_bayar: new Date().toLocaleDateString()
   })
   
 
   if (error) {
-    // alert error
     alert(error.message)
   } else {
 
@@ -98,9 +103,9 @@ const submit = async () => {
       `;
 
       mahasiswa.value = ''
-    total_bayar.value = ''
+      total_bayar.value = ''
+      sendToDiscord(messageToDiscord);
     alert.value = true;
-    sendToDiscord(messageToDiscord);
     navigateTo("/admin/payment/" + $route.params.room + "/tambah")
   }
 };
