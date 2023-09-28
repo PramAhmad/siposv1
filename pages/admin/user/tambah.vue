@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 
 
 const alert = ref(false);
@@ -40,7 +40,7 @@ const submit = async () => {
         main
       >
       </SectionTitleLineWithButton>
-     <!-- alert tambah -->
+   
       <Alert v-if="alert" type="success" class="mb-4">
         <span class="font-semibold">Berhasil!</span> User berhasil ditambahkan.
       </Alert>
@@ -49,7 +49,7 @@ const submit = async () => {
          
           <FormField label="Nama dan role">
             <FormControl v-model="mail" placeholder="Your mail" :icon="mdiAccount" />
-            <!-- Use a dropdown menu for selecting kelas -->
+         
             <select v-model="role" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 p-2">
               <option value="mahasiswa">mahasiswa</option>
               <option value="bendahara">bendahara</option>
@@ -72,4 +72,4 @@ const submit = async () => {
       </CardBox>
     </SectionMain>
   </NuxtLayout>
-</template>
+</template> -->
