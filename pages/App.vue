@@ -1,8 +1,7 @@
 <script setup>
 import { useStyleStore } from "@/stores/style.js";
 import { darkModeKey, styleKey } from "@/config.js";
-import { useStyleStore } from "@/stores/style.js";
-import { darkModeKey, styleKey } from "@/config.js";
+
 
 useHead({
   titleTemplate: (titleChunk) => {
