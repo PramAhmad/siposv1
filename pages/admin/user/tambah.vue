@@ -75,7 +75,7 @@ const submit = async () => {
 </template> -->
 
 
-<template lang="">
+<template>
   <div>
     
   </div>

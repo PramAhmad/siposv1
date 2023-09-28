@@ -1,5 +1,4 @@
-<template lang="
-">
+<template>
     <div>
         
     </div>
