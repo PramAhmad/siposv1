@@ -93,16 +93,16 @@ const submit = async () => {
     console.log(error);
   } else {
 
-//     const messageToDiscord = `
-// **Terimakasih sudah bayar**
-// **Nama**: ${selectedMahasiswa.nama}
-// **Total Bayar**: Rp ${total_bayar.value}
-// **Tanggal Bayar**: ${new Date().toLocaleDateString()}
+    const messageToDiscord = `
+**Terimakasih sudah bayar**
+**Nama**: ${selectedMahasiswa.nama}
+**Total Bayar**: Rp ${total_bayar.value}
+**Tanggal Bayar**: ${new Date().toLocaleDateString()}
 
-// **Nama Pembayaran**: ${room.value[0].nama_pembayaran}
-//       `;
+**Nama Pembayaran**: ${room.value[0].nama_pembayaran}
+      `;
 
-//     sendToDiscord(messageToDiscord);
+    sendToDiscord(messageToDiscord);
     mahasiswa.value = ''
     total_bayar.value = ''
     alert.value = true;
@@ -157,7 +157,7 @@ onMounted(()=>{
        
           <div>
             <BaseButtons>
-              <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>
+              <BaseButton color="info" type="submit" label="Submit" />
               <BaseButton @click="reset" color="info" outline label="Reset" />
             </BaseButtons>
           </div>
