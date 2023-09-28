@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
 import {
   mdiMonitorCellphone,
   mdiTableBorder,

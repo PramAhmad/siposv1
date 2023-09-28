@@ -15,13 +15,15 @@ const styleStore = useStyleStore();
 const currentStyle =
   typeof localStorage !== "undefined" && localStorage[styleKey]
     ? localStorage[styleKey]
-    : "basic";
+    : "dark"; // Ganti "dark" dengan style mode gelap Anda jika ada
+
 
 styleStore.setStyle(currentStyle);
 
 const currentStoredDarkMode =
-  typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1";
-
+  typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1"
+    ? true
+    : true;
 if (
   (!currentStoredDarkMode &&
     typeof window !== "undefined" &&
@@ -34,7 +36,7 @@ if (
 
 <template>
   <div>
-    <NuxtLayout>
+    <NuxtLayout class="">
       <NuxtPage />
     </NuxtLayout>
   </div>

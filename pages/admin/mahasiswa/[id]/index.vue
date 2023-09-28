@@ -142,6 +142,7 @@ onMounted(() => {
                   <td data-label="kelas">{{ data.mahasiswa_id.kelas }}</td>
                
                   <td data-label="tanggal bayar">{{ data.tanggal_bayar }}</td>
+                  <td data-label="tanggal bayar">{{ data.total_bayar }}</td>
                   <td data-label="Nama Pembayaran">{{ data.payment_id.nama_pembayaran }}</td>
                   <td class="before:hidden lg:w-1 whitespace-nowrap ">
                     <div class="flex gap-3">

@@ -83,7 +83,7 @@ const submit = async () => {
   
   const  {data,error} =  await supabase.from('payment').insert({
     mahasiswa_id: mahasiswaId,
-    payment_id: 1,
+    payment_id: $route.params.room,
     total_bayar: total_bayar.value,
     tanggal_bayar: new Date().toLocaleDateString()
   })
@@ -93,9 +93,19 @@ const submit = async () => {
     console.log(error);
   } else {
 
-    const messageToDiscord = `Terimakasih Udah Bayar Kas:\nNama: ${selectedMahasiswa.nama}\nTotal Bayar: Rp ${total_bayar.value}\nTanggal Bayar: ${new Date().toLocaleDateString()}\nJumlah Pembayaran: ${jumlahPembayaran} kali`;
+    const messageToDiscord = `
+**Terimakasih sudah bayar**
+**Nama**: ${selectedMahasiswa.nama}
+**Total Bayar**: Rp ${total_bayar.value}
+**Tanggal Bayar**: ${new Date().toLocaleDateString()}
+
+**Nama Pembayaran**: ${room.value[0].nama_pembayaran}
+      `;
+
     sendToDiscord(messageToDiscord);
-    navigateTo("/admin/kas");
+    mahasiswa.value = ''
+    total_bayar.value = ''
+    alert.value = true;
   }
 };
 const reset = async ()=>{
@@ -113,11 +123,16 @@ onMounted(()=>{
     <!-- flash message -->
     <SectionMain>
       <div v-for="r in room" :key="r.id">
-    <SectionTitleLineWithButton :icon="mdiTableBorder" :title="`payment ` + r.nama_pembayaran" main>
-      <NuxtLink :to="`/admin/payment/${r.id}/tambah`" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Bayar payment</NuxtLink>
-    </SectionTitleLineWithButton>
-    
-
+        <SectionTitleLineWithButton :icon="mdiTableBorder" :title="`payment ` + r.nama_pembayaran" main>
+          <!-- <NuxtLink :to="`/admin/payment/${r.id}/tambah`" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Bayar payment</NuxtLink> -->
+        </SectionTitleLineWithButton>
+        
+        
+        <!-- alert -->
+        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="alert"> 
+            <p class="font-bold">Transaksi</p>
+            <p class="text-sm">Transaksi Berhasil</p>
+          </div>
     </div>
       <!-- <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
         <p class="font-bold">{{ $route.params.room  }}

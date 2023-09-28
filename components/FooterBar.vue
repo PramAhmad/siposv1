@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
       </div>
       <div class="md:py-2">
         <a href="https://justboil.me">
-          <JustboilLogo class="w-auto h-8 md:h-6" />
+         
         </a>
       </div>
     </BaseLevel>

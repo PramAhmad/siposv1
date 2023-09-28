@@ -21,7 +21,7 @@ const props = defineProps({
 });
 
 const spanClass = computed(
-  () => `inline-flex justify-center items-center ${props.w} ${props.h}`
+  () => `inline-flex justify-center text-slate-900 dark:text-white items-center ${props.w} ${props.h}`
 );
 
 const iconSize = computed(() => props.size ?? 16);
