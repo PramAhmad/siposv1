@@ -13,7 +13,7 @@ useHead({
 });
 
 const styleStore = useStyleStore();
-const styleStore = useStyleStore();
+
 
 const currentStyle =
   typeof localStorage !== "undefined" && localStorage[styleKey]
@@ -21,7 +21,7 @@ const currentStyle =
     : "basic";
 
 styleStore.setStyle(currentStyle);
-styleStore.setStyle(currentStyle);
+
 
 const currentStoredDarkMode =
   typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1";
@@ -37,10 +37,16 @@ if (
 </script>
 
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
+  <div id="temp">
+    <NuxtLayout >
+      <NuxtPage/>
     </NuxtLayout>
   </div>
 </template>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+  #temp{
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
