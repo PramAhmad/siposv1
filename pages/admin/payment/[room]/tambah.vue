@@ -106,6 +106,7 @@ const submit = async () => {
     mahasiswa.value = ''
     total_bayar.value = ''
     alert.value = true;
+    navigateTo("/admin/payment/" + $route.params.room + "/tambah")
   }
 };
 const reset = async ()=>{
@@ -140,11 +141,11 @@ onMounted(()=>{
         <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
       </div> -->
       <CardBox>
+        <NotificationBarInCard
+            color="info"
+            :icon="mdiMonitorCellphone"
+            class="mb-6"></NotificationBarInCard>
         <form @submit.prevent="submit">
-            <NotificationBarInCard
-                color="info"
-                :icon="mdiMonitorCellphone"
-                class="mb-6"></NotificationBarInCard>
           <FormField label="Masukan Nama dan jjumlah">
               <select  v-model="mahasiswa" :icon="mdiAccount" >
                 <option v-for="data,i in mahasiswas" :key="data.id" :value="data.id">{{ data.nama }} kelas {{ data.kelas }}</option>
@@ -157,7 +158,7 @@ onMounted(()=>{
        
           <div>
             <BaseButtons>
-              <BaseButton color="info" type="submit" label="Submit" />
+              <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>
               <BaseButton @click="reset" color="info" outline label="Reset" />
             </BaseButtons>
           </div>
