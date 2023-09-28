@@ -2,6 +2,7 @@
 import { useStyleStore } from "@/stores/style.js";
 import { darkModeKey, styleKey } from "@/config.js";
 
+
 useHead({
   titleTemplate: (titleChunk) => {
     const titleBase = "Information System";
@@ -12,12 +13,14 @@ useHead({
 
 const styleStore = useStyleStore();
 
+
 const currentStyle =
   typeof localStorage !== "undefined" && localStorage[styleKey]
     ? localStorage[styleKey]
     : "basic";
 
 styleStore.setStyle(currentStyle);
+
 
 const currentStoredDarkMode =
   typeof localStorage !== "undefined" && localStorage[darkModeKey] === "1";

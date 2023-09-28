@@ -11,6 +11,13 @@ import {
   mdiResponsive,
   mdiPalette,
   mdiReact,
+  mdiHandCoin,
+  mdiHistory,
+  mdiEvernote,
+  mdiAlertPlus,
+  mdiAlarm,
+  mdiMail,
+  mdiMailbox,
 } from "@mdi/js";
 
 export default [
@@ -19,30 +26,9 @@ export default [
     icon: mdiMonitor,
     label: "Dashboard",
   },
- 
-  {
-    to: "/admin/activity",
-    label: "Activity",
-    icon: mdiResponsive,
-  },
-  {
-    to: "/admin/event",
-    label: "Event",
-    icon: mdiPalette,
-  },
-  {
-    to: "/masukan",
-    label: "Masukan",
-    icon: mdiAccountCircle,
-  },
-  {
-    to: "/admin/payment",
-    label: "Payment",
-    icon: mdiAccountCircle,
-  },
   {
     label: "Mahasiwa",
-    icon: mdiViewList,
+    icon: mdiAccountCircle,
     menu: [
       {
         to: "/admin/mahasiswa",
@@ -54,6 +40,28 @@ export default [
       },
     ],
   },
+  {
+    to: "/admin/payment",
+    label: "Payment",
+    icon: mdiHandCoin,
+  },
+  {
+    to: "/admin/activity",
+    label: "Activity",
+    icon: mdiHistory,
+  },
+  {
+    to: "/admin/event",
+  label: "Event",
+    icon: mdiAlarm,
+  },
+  {
+    to: "/masukan",
+    label: "Masukan",
+    icon: mdiMailbox,
+  },
+ 
+  
 
   
 ];

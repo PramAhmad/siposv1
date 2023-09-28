@@ -15,7 +15,7 @@
 
                 <tr>
                     <th>No</th>
-                    <th>Npm</th>
+                    <th>Nama </th>
                     <th>Nama</th>
                     <th>Foto</th>
                     <th>Desc</th>
