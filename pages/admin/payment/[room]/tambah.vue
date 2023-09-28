@@ -93,16 +93,16 @@ const submit = async () => {
     console.log(error);
   } else {
 
-    const messageToDiscord = `
-**Terimakasih sudah bayar**
-**Nama**: ${selectedMahasiswa.nama}
-**Total Bayar**: Rp ${total_bayar.value}
-**Tanggal Bayar**: ${new Date().toLocaleDateString()}
+//     const messageToDiscord = `
+// **Terimakasih sudah bayar**
+// **Nama**: ${selectedMahasiswa.nama}
+// **Total Bayar**: Rp ${total_bayar.value}
+// **Tanggal Bayar**: ${new Date().toLocaleDateString()}
 
-**Nama Pembayaran**: ${room.value[0].nama_pembayaran}
-      `;
+// **Nama Pembayaran**: ${room.value[0].nama_pembayaran}
+//       `;
 
-    sendToDiscord(messageToDiscord);
+//     sendToDiscord(messageToDiscord);
     mahasiswa.value = ''
     total_bayar.value = ''
     alert.value = true;
