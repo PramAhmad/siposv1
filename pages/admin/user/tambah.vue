@@ -9,7 +9,7 @@ const role = ref('');
 
 const submit = async () => {
   alert.value = false;
-    const {data,error} = await supabase.auth.admin.adminCreateUser({
+    const {data,error} = await supabase.auth.admin.createUser({
         email: mail.value,
         email_confirmation: true,
         password: password.value,
@@ -40,10 +40,10 @@ const submit = async () => {
         main
       >
       </SectionTitleLineWithButton>
-      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
-        <p class="font-bold">Tambah User</p>
-        <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
-      </div>
+     <!-- alert tambah -->
+      <Alert v-if="alert" type="success" class="mb-4">
+        <span class="font-semibold">Berhasil!</span> User berhasil ditambahkan.
+      </Alert>
       <CardBox>
         <form @submit.prevent="submit">
          
@@ -59,7 +59,7 @@ const submit = async () => {
           </FormField>
 
           <FormField label="Password" help="Do not enter the leading zero">
-            <FormControl v-model="password  " type="tel" placeholder="Your password" />
+            <FormControl v-model="password  " type="password" placeholder="Your password" />
           </FormField>
         
           <div>

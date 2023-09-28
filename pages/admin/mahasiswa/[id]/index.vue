@@ -18,6 +18,8 @@ const supabase = useSupabaseClient()
 const payment = ref([])
 const $route = useRoute()
 const loading = ref(false)
+const nama_pembayaran = ref([])
+
 const updateMahasiswa = async()=>{
     // validate jika isinya kosong maka field tidak terupdate
  
@@ -31,6 +33,48 @@ const updateMahasiswa = async()=>{
         console.log(error)
     }
 }
+
+// get nama pembayaran and count every payment
+const getNamaPembayaran = async () => {
+  try {
+    const { data: nama_pembayaran, error } = await supabase
+      .from('room_payment')
+      .select('id, nama_pembayaran');
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    for (let i = 0; i < nama_pembayaran.length; i++) {
+      const roomPaymentId = nama_pembayaran[i].id;
+
+      const { data: paymentCount, error: countError } = await supabase
+        .from('payment')
+        .select('count(total_bayar)')
+        .eq('payment_id', roomPaymentId)
+        .eq('mahasiswa_id', $route.params.id);
+
+      if (countError) {
+        console.error(countError);
+      } else {
+        // Assuming the count query returns one row with a count
+        const totalCount = paymentCount[0].count;
+        nama_pembayaran[i].count = totalCount;
+      }
+    }
+
+    // Now you can access the nama_pembayaran data with counts
+    console.log(nama_pembayaran);
+    nama_pembayaran.value = nama_pembayaran;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+
+
+
 const getSingleMahasiswa = async() => {
     const { data, error } = await supabase.from("mahasiswa").select().eq('id', $route.params.id)
     if (data[0]) {
@@ -57,6 +101,7 @@ const getMahasiswaPayment = async()=>{
 onMounted(() => {
   getMahasiswaPayment()
     getSingleMahasiswa()
+    getNamaPembayaran()
 })
 </script>
 
@@ -66,7 +111,7 @@ onMounted(() => {
       <SectionTitleLineWithButton :icon="mdiAccount" title="Profile" main>
        
       </SectionTitleLineWithButton>
-
+      
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
         <MahasiswaCard class="mb-6" />
@@ -119,6 +164,9 @@ onMounted(() => {
         <!-- <NuxtLink to="/admin/mahasiswa/tambah" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Add Mahasiswa</NuxtLink> -->
       </SectionTitleLineWithButton>
         <CardBox class="mb-6" has-table>
+          <ul v-for="data in nama_pembayaran" :key="data.id" >
+        <li>{{ data.nama_pembayaran }}</li>
+      </ul>
       <table>
           <thead>
 
