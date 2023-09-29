@@ -7,9 +7,10 @@
        <button @click="deletePayment()" class="py-2 px-3 bg-rose-600 rounded-full text-white hover:bg-rose-500">delete</button>
       </SectionTitleLineWithButton>
       <!-- alert -->
-        <NotificationBar v-if="alert" color="success" icon="mdiCheckCircleOutline">
-            Berhasil mengupdate data
-        </NotificationBar>
+      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="alert"> 
+        <p class="font-bold">Update Room</p>
+        <p class="text-sm">Berhasil Update Room</p>
+      </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-2">
         <MahasiswaCard class="mb-6" />

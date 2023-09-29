@@ -34,7 +34,7 @@ const getMahasiswa = async () => {
 };
 
 const sendToDiscord = async (message) => {
-  const discordWebhookURL = 'https://discord.com/api/webhooks/1152573110315393134/-yvMPEfyJyirKt8_WN-6nEu7C2_D4CAjUtLQ8FFryiMOdcWMV2pJ2W6zGPluN0j4xfNw'; 
+  const discordWebhookURL = 'https://discordapp.com/api/webhooks/1157344823666294784/5l_evA92FI2JNTOHlyUhj-zr_xMLyhaLAmII8hPOMhubBErwUfiwqLTRJON72sISLn4W'; 
   const data = {
     content: message,
   };
@@ -81,12 +81,16 @@ const addPayment = async () => {
       alert(error.message);
     } else {
       const messageToDiscord = `
-        **Terimakasih sudah bayar**
-        **Nama**: ${selectedMahasiswa.nama}
-        **Total Bayar**: Rp ${total_bayar.value}
-        **Tanggal Bayar**: ${new Date().toLocaleDateString()}
-        **Nama Pembayaran**: ${room.value[0].nama_pembayaran}
-      `;
+      \`\`\`md
+  Terimakasih sudah bayar
+
+ Informasi Pembayaran:
+  -Nama: ${selectedMahasiswa.nama}
+  -Total Bayar: Rp ${total_bayar.value}
+  -Tanggal Bayar: ${new Date().toLocaleDateString()} 
+  -Nama Pembayaran: ${room.value[0].nama_pembayaran}
+  \`\`\`
+  `;
 
       mahasiswa.value = '';
       total_bayar.value = '';
@@ -103,6 +107,8 @@ const reset = () => {
   mahasiswa.value = '';
   total_bayar.value = '';
 };
+
+const router = useRouter();
 
 import SectionMain from '@/components/SectionMain.vue';
 import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue';
@@ -140,7 +146,7 @@ onMounted(() => {
         <NotificationBarInCard color="info" :icon="mdiMonitorCellphone" class="mb-6"></NotificationBarInCard>
         <form @submit.prevent="addPayment">
           <FormField label="Masukan Nama dan jumlah">
-            <select v-model="mahasiswa" :icon="mdiAccount">
+            <select v-model="mahasiswa" :icon="mdiAccount" class="dark:bg-gray-800 " placeholder="nama mahasiswa">
               <option v-for="data in mahasiswas" :key="data.id" :value="data.id">{{ data.nama }} kelas {{ data.kelas }}</option>
             </select>
             <FormControl v-model="total_bayar" :icon="mdiMail" placeholder="jumlah bayar" />
@@ -155,6 +161,17 @@ onMounted(() => {
         </form>
       </CardBox>
     </SectionMain>
+    <div
+    
+      class="fixed bottom-4 right-4 z-50"
+    >
+      <button
+        @click="router.back()"
+        class="flex items-center justify-center w-10 h-10 rounded-full text-white bg-blue-600 dark:bg-blue-600 shadow-lg"
+      >
+      <BaseIcon :path="mdiArrowLeft" size="24px" color="white" />
+      </button>
+    </div>
   </NuxtLayout>
 </template>
 
