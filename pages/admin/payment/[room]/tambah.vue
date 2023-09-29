@@ -1,122 +1,123 @@
 <script setup>
-import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail } from "@mdi/js";
-import SectionMain from "@/components/SectionMain.vue";
-import CardBox from "@/components/CardBox.vue";
+import { ref } from 'vue';
 
-import FormField from "@/components/FormField.vue";
-import FormControl from "@/components/FormControl.vue";
-
-import BaseButton from "@/components/BaseButton.vue";
-import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-
-
-const mahasiswa = ref();
+const mahasiswa = ref('');
 const total_bayar = ref('');
-const mahasiswas = ref([])
+const mahasiswas = ref([]);
 const alert = ref(false);
 const supabase = useSupabaseClient();
-const $route = useRoute()
-const room = ref([])
-const getInfoRoom = async ()=>{
-const { data, error } = await supabase
-  .from('room_payment')
-    .select('id,nama_pembayaran, desc')
-    .eq("id", $route.params.room)
-if (error) {
-    console.log(error)
-    
-}
-else {
-    room.value = data
-}
-}
-const getMahasiswa = async ()=>{
+const $route = useRoute();
+const room = ref([]);
 
-        const { data, error } = await supabase
-        .from('mahasiswa')
-        .select()
-        .order('npm', { ascending: true })
-        mahasiswas.value = data
-    
-}
+const getInfoRoom = async () => {
+  try {
+    const { data } = await supabase
+      .from('room_payment')
+      .select('id, nama_pembayaran, desc')
+      .eq('id', $route.params.room);
+    room.value = data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getMahasiswa = async () => {
+  try {
+    const { data } = await supabase
+      .from('mahasiswa')
+      .select()
+      .order('npm', { ascending: true });
+    mahasiswas.value = data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const sendToDiscord = async (message) => {
-
-  const discordWebhookURL = "https://discord.com/api/webhooks/1152573110315393134/-yvMPEfyJyirKt8_WN-6nEu7C2_D4CAjUtLQ8FFryiMOdcWMV2pJ2W6zGPluN0j4xfNw";
-
+  const discordWebhookURL = 'https://discord.com/api/webhooks/1152573110315393134/-yvMPEfyJyirKt8_WN-6nEu7C2_D4CAjUtLQ8FFryiMOdcWMV2pJ2W6zGPluN0j4xfNw'; 
   const data = {
     content: message,
   };
 
   try {
     const response = await fetch(discordWebhookURL, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
 
     if (response.ok) {
-      console.log("Pesan berhasil dikirim ke Discord");
+      console.log('Pesan berhasil dikirim ke Discord');
     } else {
-      console.error("Gagal mengirim pesan ke Discord");
+      console.error('Gagal mengirim pesan ke Discord');
     }
   } catch (error) {
-    console.error("Gagal mengirim pesan ke Discord:", error);
+    console.error('Gagal mengirim pesan ke Discord:', error);
   }
 };
 
-const submit = async () => {
+const addPayment = async () => {
   alert.value = false;
 
   const mahasiswaId = mahasiswa.value;
-  const selectedMahasiswa = mahasiswas.value.find(mahasiswa => mahasiswa.id === mahasiswaId);
-  
+  const selectedMahasiswa = mahasiswas.value.find((m) => m.id === mahasiswaId);
+
   if (!selectedMahasiswa) {
-    console.error("Mahasiswa tidak ditemukan");
+    console.error('Mahasiswa tidak ditemukan');
     return;
   }
-  
-  const  {data,error} =  await supabase.from('payment').insert({
-    mahasiswa_id: mahasiswaId,
-    payment_id: $route.params.room,
-    total_bayar: total_bayar.value,
-    tanggal_bayar: new Date().toLocaleDateString()
-  })
-  
 
-  if (error) {
-    alert(error.message)
-  } else {
+  try {
+    const { error } = await supabase.from('payment').insert({
+      mahasiswa_id: mahasiswaId,
+      payment_id: $route.params.room,
+      total_bayar: total_bayar.value,
+      // tanggal_bayar: new Date().toLocaleDateString(),
+    });
 
-    const messageToDiscord = `
-**Terimakasih sudah bayar**
-**Nama**: ${selectedMahasiswa.nama}
-**Total Bayar**: Rp ${total_bayar.value}
-**Tanggal Bayar**: ${new Date().toLocaleDateString()}
-
-**Nama Pembayaran**: ${room.value[0].nama_pembayaran}
+    if (error) {
+      alert(error.message);
+    } else {
+      const messageToDiscord = `
+        **Terimakasih sudah bayar**
+        **Nama**: ${selectedMahasiswa.nama}
+        **Total Bayar**: Rp ${total_bayar.value}
+        **Tanggal Bayar**: ${new Date().toLocaleDateString()}
+        **Nama Pembayaran**: ${room.value[0].nama_pembayaran}
       `;
 
-      mahasiswa.value = ''
-      total_bayar.value = ''
+      mahasiswa.value = '';
+      total_bayar.value = '';
       sendToDiscord(messageToDiscord);
-    alert.value = true;
-    navigateTo("/admin/payment/" + $route.params.room + "/tambah")
+      alert.value = true;
+      // navigateTo(`/admin/payment/${$route.params.room}/tambah`);
+    }
+  } catch (error) {
+    console.error(error);
   }
 };
-const reset = async ()=>{
-  mahasiswa.value = ''
-  total_bayar.value = ''
-}
-onMounted(()=>{
-    getMahasiswa()
-    getInfoRoom()
-})
+
+const reset = () => {
+  mahasiswa.value = '';
+  total_bayar.value = '';
+};
+
+import SectionMain from '@/components/SectionMain.vue';
+import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue';
+import CardBox from '@/components/CardBox.vue';
+import NotificationBarInCard from '@/components/NotificationBarInCard.vue';
+import FormField from '@/components/FormField.vue';
+import FormControl from '@/components/FormControl.vue';
+import BaseButton from '@/components/BaseButton.vue';
+import BaseButtons from '@/components/BaseButtons.vue';
+import { mdiTableBorder, mdiMonitorCellphone, mdiAccount, mdiMail } from '@mdi/js';
+
+onMounted(() => {
+  getMahasiswa();
+  getInfoRoom();
+});
 </script>
 
 <template>
@@ -127,35 +128,24 @@ onMounted(()=>{
         <SectionTitleLineWithButton :icon="mdiTableBorder" :title="`payment ` + r.nama_pembayaran" main>
           <!-- <NuxtLink :to="`/admin/payment/${r.id}/tambah`" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Bayar payment</NuxtLink> -->
         </SectionTitleLineWithButton>
-        
-        
-        <!-- alert -->
-        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="alert"> 
-            <p class="font-bold">Transaksi</p>
-            <p class="text-sm">Transaksi Berhasil</p>
-          </div>
-    </div>
-      <!-- <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
-        <p class="font-bold">{{ $route.params.room  }}
-        </p>
-        <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
-      </div> -->
-      <CardBox>
-        <NotificationBarInCard
-            color="info"
-            :icon="mdiMonitorCellphone"
-            class="mb-6"></NotificationBarInCard>
-        <form @submit.prevent="submit">
-          <FormField label="Masukan Nama dan jjumlah">
-              <select  v-model="mahasiswa" :icon="mdiAccount" >
-                <option v-for="data,i in mahasiswas" :key="data.id" :value="data.id">{{ data.nama }} kelas {{ data.kelas }}</option>
-               
-                
-            </select>
-            <FormControl v-model="total_bayar" :icon="mdiMail"  placeholder="jumlah bayar" />
-        </FormField>
+      </div>
 
-       
+      <!-- alert -->
+      <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="alert">
+        <p class="font-bold">Transaksi</p>
+        <p class="text-sm">Transaksi Berhasil</p>
+      </div>
+
+      <CardBox>
+        <NotificationBarInCard color="info" :icon="mdiMonitorCellphone" class="mb-6"></NotificationBarInCard>
+        <form @submit.prevent="addPayment">
+          <FormField label="Masukan Nama dan jumlah">
+            <select v-model="mahasiswa" :icon="mdiAccount">
+              <option v-for="data in mahasiswas" :key="data.id" :value="data.id">{{ data.nama }} kelas {{ data.kelas }}</option>
+            </select>
+            <FormControl v-model="total_bayar" :icon="mdiMail" placeholder="jumlah bayar" />
+          </FormField>
+
           <div>
             <BaseButtons>
               <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>
@@ -169,7 +159,7 @@ onMounted(()=>{
 </template>
 
 <style>
-.pram{
+.pram {
   background-color: #f5f5f5;
   border-radius: 5px;
   padding: 10px;
