@@ -5,22 +5,35 @@ const form = reactive({
   pass: "",
   
 });
-
+const loading = ref(false)
 const supabase = useSupabaseClient();
 const submit = async () => {
   const {data,error} = await supabase.auth.signInWithPassword({
     email: form.login,
     password: form.pass,
   });
+  loading.value = true
   if(error){
     alert(error.message)
   }
+
   navigateTo("/admin")
 };
 </script>
 
 <template>
   <NuxtLayout>
+    <!-- loading full custom view screen -->
+    <div v-if="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white rounded-lg p-6">
+        <div class="flex items-center justify-center">
+          <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
+        </div>
+      </div>
+    </div>
+    
+
+
       <!-- <img src="@/assets"> -->
     <SectionFullScreen v-slot="{ cardClass }" bg="purplePink">
 
