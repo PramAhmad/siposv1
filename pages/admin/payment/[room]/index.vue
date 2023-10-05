@@ -73,22 +73,22 @@
             </tbody>
           </table>
         </CardBox>
+        <!-- loadmore button -->
+        <div class="flex justify-center">
+          <BaseButton color="primary" @click="LoadMore" label="more" >
+            
+          </BaseButton>
+        </div>
       </SectionMain>
     </NuxtLayout>
   </template>
   
   <script setup>
-  import {
-    mdiEye,
-    mdiTableBorder,
-    mdiDetails,
-    mdiTrashCan,
-  } from "@mdi/js";
-  import SectionMain from "@/components/SectionMain.vue";
-  import CardBox from "@/components/CardBox.vue";
-  import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-  import BaseButton from "@/components/BaseButton.vue";
-  import BaseButtons from "@/components/BaseButtons.vue";
+ definePageMeta({
+  middleware: 'auth'
+})
+// import icon
+import { mdiTableBorder, mdiEye, mdiTrashCan } from "@mdi/js";
   let payment = ref([]);
   let room = ref([]);
   let search = ref("");
@@ -100,6 +100,7 @@
       .from("room_payment")
       .select("id,nama_pembayaran, desc")
       .eq("id", $route.params.room);
+     
     if (error) {
       console.log(error);
     } else {
@@ -112,6 +113,7 @@
       .from("payment")
       .select("id,total_bayar, tanggal_bayar, mahasiswa_id(id,nama, kelas), payment_id(nama_pembayaran, desc)")
       .eq("payment_id", $route.params.room)
+      .limit(5)
       .order("id", { ascending: false });
     if (error) {
       console.error(error);
@@ -158,14 +160,27 @@
     const monthName = monthNames[monthIndex];
     return `${day} ${monthName} ${year}`;
   };
+
+  const LoadMore = async () => {
+    const { data, error } = await supabase
+      .from("payment")
+      .select("id,total_bayar, tanggal_bayar, mahasiswa_id(id,nama, kelas), payment_id(nama_pembayaran, desc)")
+      .eq("payment_id", $route.params.room)
+      .order("id", { ascending: false })
+      .range(payment.value.length, payment.value.length + 5);
+    if (error) {
+      console.error(error);
+    }
+    payment.value = [...payment.value, ...data];
+  };
+
+
     const filteredPayment = computed(() => {
         return payment.value.filter((data) => {
         return (
             data.mahasiswa_id.nama.toLowerCase().includes(search.value.toLowerCase()) ||
             data.mahasiswa_id.kelas.toLowerCase().includes(search.value.toLowerCase()) ||
             data.total_bayar.toString().toLowerCase().includes(search.value.toLowerCase())||
-
-            // data.total_bayar.toLowerCase().includes(search.value.toLowerCase()) ||
             data.tanggal_bayar.toLowerCase().includes(search.value.toLowerCase())
         );
         });

@@ -1,22 +1,7 @@
 <script setup>
-import {
-  mdiMonitorCellphone,
-  mdiTableBorder,
-
-  mdiTrashCan,
-
-} from "@mdi/js";
-import SectionMain from "@/components/SectionMain.vue";
-import NotificationBar from "@/components/NotificationBar.vue";
-
-import CardBox from "@/components/CardBox.vue";
-
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import BaseButton from "@/components/BaseButton.vue";
-import BaseButtons from "@/components/BaseButtons.vue";
-
-
-
+definePageMeta({
+  middleware: 'auth'
+})
 
 const activity = ref([]);
 const loading = ref(false)

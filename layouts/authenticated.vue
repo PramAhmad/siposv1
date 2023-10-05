@@ -84,12 +84,7 @@ const menuClick = (event, item) => {
           <BaseIcon :path="mdiMenu" size="24" />
         </NavBarItemPlain>
         <NavBarItemPlain use-margin>
-          <FormControl
-            placeholder="Search (ctrl+k)"
-            ctrl-k-focus
-            transparent
-            borderless
-          />
+          <h2 class="text-xl font-bold text-gray-900 dark:text-gray-200">Information System</h2>
         </NavBarItemPlain>
       </NavBar>
       <AsideMenu

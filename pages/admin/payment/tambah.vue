@@ -1,17 +1,7 @@
 <script setup>
-import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail } from "@mdi/js";
-import SectionMain from "@/components/SectionMain.vue";
-import CardBox from "@/components/CardBox.vue";
-
-import FormField from "@/components/FormField.vue";
-import FormControl from "@/components/FormControl.vue";
-
-import BaseButton from "@/components/BaseButton.vue";
-import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-
+definePageMeta({
+  middleware: 'auth'
+})
 
 
 const supabase = useSupabaseClient();
@@ -19,7 +9,7 @@ const supabase = useSupabaseClient();
 const room = ref([])
 const nama = ref()
 const desc = ref()
-
+const alert = ref(false)
 
 
 const submit = async () => {
@@ -31,9 +21,6 @@ const submit = async () => {
 
   })
   
-  
-
-  
 
   if (error) {
     console.log(error);
@@ -41,13 +28,9 @@ const submit = async () => {
     alert.value = true;
     nama.value = ''
     desc.value = ''
-   
-
-
-   
-
   }
 };
+
 const reset = async ()=>{
   nama.value = ''
   desc.value = ''
@@ -64,12 +47,13 @@ const reset = async ()=>{
 
     </SectionTitleLineWithButton>
     
-
-      <!-- <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="false"> 
-        <p class="font-bold">{{ $route.params.room  }}
+    <!-- alert -->
+    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert" v-if="alert"> 
+        <p class="font-bold">Sukses
         </p>
-        <p class="text-sm">Berhasil Menambahkan Mahasiswa</p>
-      </div> -->
+        <p class="text-sm">Berhasil Menambahkan Room</p>
+      </div>
+   
       <CardBox>
         <form @submit.prevent="submit">
             <NotificationBarInCard
@@ -78,9 +62,14 @@ const reset = async ()=>{
                 class="mb-6"></NotificationBarInCard>
           <FormField label="Masukan Nama Room">
                           <FormControl v-model="nama" :icon="mdiMail"  placeholder="Nama Jenis Payment" />
-            <FormControl v-model="desc" :icon="mdiMail"  placeholder="Deskripsi" />
-
-        </FormField>
+                          
+                          
+                        </FormField>
+                        <!-- textarea desc -->
+                        <label for="" class="font-semibold text-gray-800">Masukan Desc</label>
+                        <textarea  v-model="desc" id="" cols="30" rows="10" class="
+                        w-full border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 p-2  
+                        " placeholder="deskripsi"></textarea>
 
        
           <div>

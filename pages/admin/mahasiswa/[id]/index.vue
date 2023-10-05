@@ -203,8 +203,8 @@ onMounted(() => {
         <td data-label="no">{{ i + 1 }}</td>
         <td data-label="Nama Pembayaran">{{ data.payment_id.nama_pembayaran }}</td>
       
-        <td data-label="tanggal bayar">Rp.{{ data.total_bayar }}</td>
-        <td data-label="tanggal bayar">{{ data.tanggal_bayar }}</td>
+        <td data-label="Total Bayar">Rp.{{ data.total_bayar }}</td>
+        <td data-label="Tanggal Bayar">{{ data.tanggal_bayar }}</td>
      
       </tr>
     </tbody>
