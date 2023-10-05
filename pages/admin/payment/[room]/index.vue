@@ -84,17 +84,11 @@
   </template>
   
   <script setup>
-  import {
-    mdiEye,
-    mdiTableBorder,
-    mdiDetails,
-    mdiTrashCan,
-  } from "@mdi/js";
-  import SectionMain from "@/components/SectionMain.vue";
-  import CardBox from "@/components/CardBox.vue";
-  import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-  import BaseButton from "@/components/BaseButton.vue";
-  import BaseButtons from "@/components/BaseButtons.vue";
+ definePageMeta({
+  middleware: 'auth'
+})
+// import icon
+import { mdiTableBorder, mdiEye, mdiTrashCan } from "@mdi/js";
   let payment = ref([]);
   let room = ref([]);
   let search = ref("");
@@ -187,8 +181,6 @@
             data.mahasiswa_id.nama.toLowerCase().includes(search.value.toLowerCase()) ||
             data.mahasiswa_id.kelas.toLowerCase().includes(search.value.toLowerCase()) ||
             data.total_bayar.toString().toLowerCase().includes(search.value.toLowerCase())||
-
-            // data.total_bayar.toLowerCase().includes(search.value.toLowerCase()) ||
             data.tanggal_bayar.toLowerCase().includes(search.value.toLowerCase())
         );
         });

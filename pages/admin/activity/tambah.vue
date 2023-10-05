@@ -1,14 +1,7 @@
 <script setup>
-import { mdiBallotOutline, mdiAccount, mdiGithub } from "@mdi/js";
-import SectionMain from "@/components/SectionMain.vue";
-import CardBox from "@/components/CardBox.vue";
-import FormField from "@/components/FormField.vue";
-import FormControl from "@/components/FormControl.vue";
-import BaseButton from "@/components/BaseButton.vue";
-import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-
-
+definePageMeta({
+  middleware: 'auth'
+})
 
 const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/activity/");
 const fotopath = ref();

@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue';
+  
+definePageMeta({
+  middleware: 'auth'
+})
 
 const mahasiswa = ref('');
 const total_bayar = ref('');
@@ -8,7 +11,7 @@ const alert = ref(false);
 const supabase = useSupabaseClient();
 const $route = useRoute();
 const room = ref([]);
-
+const filter = ref([]);
 const getInfoRoom = async () => {
   try {
     const { data } = await supabase
@@ -21,17 +24,17 @@ const getInfoRoom = async () => {
   }
 };
 
-const getMahasiswa = async () => {
-  try {
-    const { data } = await supabase
-      .from('mahasiswa')
-      .select()
-      .order('npm', { ascending: true });
-    mahasiswas.value = data;
-  } catch (error) {
+const filterMahasiswa = async(e)=>{
+ const {data,error} = await supabase
+  .from('mahasiswa')
+  .select('id,nama,kelas')
+  .ilike('nama', '%'+e.target.value+'%')
+  filter.value = data;
+  
+  if(error){
     console.error(error);
   }
-};
+}
 
 const sendToDiscord = async (message) => {
   const discordWebhookURL = 'https://discordapp.com/api/webhooks/1157344823666294784/5l_evA92FI2JNTOHlyUhj-zr_xMLyhaLAmII8hPOMhubBErwUfiwqLTRJON72sISLn4W'; 
@@ -110,18 +113,8 @@ const reset = () => {
 
 const router = useRouter();
 
-import SectionMain from '@/components/SectionMain.vue';
-import SectionTitleLineWithButton from '@/components/SectionTitleLineWithButton.vue';
-import CardBox from '@/components/CardBox.vue';
-import NotificationBarInCard from '@/components/NotificationBarInCard.vue';
-import FormField from '@/components/FormField.vue';
-import FormControl from '@/components/FormControl.vue';
-import BaseButton from '@/components/BaseButton.vue';
-import BaseButtons from '@/components/BaseButtons.vue';
-import { mdiTableBorder, mdiMonitorCellphone, mdiAccount, mdiMail } from '@mdi/js';
-
 onMounted(() => {
-  getMahasiswa();
+  // getMahasiswa();  
   getInfoRoom();
 });
 </script>
@@ -146,9 +139,16 @@ onMounted(() => {
         <NotificationBarInCard color="info" :icon="mdiMonitorCellphone" class="mb-6"></NotificationBarInCard>
         <form @submit.prevent="addPayment">
           <FormField label="Masukan Nama dan jumlah">
-            <select v-model="mahasiswa" :icon="mdiAccount" class="dark:bg-gray-800 " placeholder="nama mahasiswa">
-              <option v-for="data in mahasiswas" :key="data.id" :value="data.id">{{ data.nama }} kelas {{ data.kelas }}</option>
-            </select>
+          <!-- select 2 mahasiswa -->
+          <FormControl v-model="mahasiswa" :icon="mdiMail" placeholder="Nama Mahasiswa" @input="filterMahasiswa" />
+            <div v-if="mahasiswa">
+              <div v-for="m in filter" :key="m.id" >
+                <!-- add the value to model mahasiswa -->
+                <div v-if="mahasiswa != m.nama" class="pram"  @click="mahasiswa = m.nama">
+                 <span  class="cursor-pointer" >{{m.nama}} ({{m.kelas }})</span>
+                 </div>
+              </div>
+            </div>
             <FormControl v-model="total_bayar" :icon="mdiMail" placeholder="jumlah bayar" />
           </FormField>
 

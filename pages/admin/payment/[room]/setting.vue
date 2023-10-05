@@ -57,8 +57,11 @@
   </NuxtLayout>
 </template>
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
 const supabase = useSupabaseClient()
-const room = ref([])
+
 const $route = useRoute()
 const desc = ref()
 const nama = ref()

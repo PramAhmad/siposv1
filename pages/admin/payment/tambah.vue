@@ -1,17 +1,7 @@
 <script setup>
-import { reactive, ref } from "vue";
-import { mdiBallotOutline, mdiAccount, mdiMail } from "@mdi/js";
-import SectionMain from "@/components/SectionMain.vue";
-import CardBox from "@/components/CardBox.vue";
-
-import FormField from "@/components/FormField.vue";
-import FormControl from "@/components/FormControl.vue";
-
-import BaseButton from "@/components/BaseButton.vue";
-import BaseButtons from "@/components/BaseButtons.vue";
-import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
-import NotificationBarInCard from "@/components/NotificationBarInCard.vue";
-
+definePageMeta({
+  middleware: 'auth'
+})
 
 
 const supabase = useSupabaseClient();
@@ -38,13 +28,9 @@ const submit = async () => {
     alert.value = true;
     nama.value = ''
     desc.value = ''
-   
-
-
-   
-
   }
 };
+
 const reset = async ()=>{
   nama.value = ''
   desc.value = ''

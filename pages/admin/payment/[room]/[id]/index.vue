@@ -1,13 +1,7 @@
 <script setup>
-
-import {
-  mdiAccount,
-  mdiMail,
-
-
-} from "@mdi/js";
-
-
+definePageMeta({
+  middleware: 'auth'
+})
 
 
 const supabase = useSupabaseClient()

@@ -42,7 +42,7 @@ export default [
   },
   {
     to: "/admin/payment",
-    label: "Payment",
+    label: "Pembayaran",
     icon: mdiHandCoin,
   },
   {
