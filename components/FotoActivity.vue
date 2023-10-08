@@ -18,7 +18,7 @@ const emit = defineEmits(["update:path", "upload"])
         const connection_string ="BlobEndpoint=https://sisfor23.blob.core.windows.net/;QueueEndpoint=https://sisfor23.queue.core.windows.net/;FileEndpoint=https://sisfor23.file.core.windows.net/;TableEndpoint=https://sisfor23.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwlacupiytfx&se=2024-10-08T06:36:44Z&st=2023-10-07T22:36:44Z&spr=https&sig=afa6eRmfFh783CPHQ4aHFS0blfZkseFH0bpf3jv3JlM%3D"; // Replace with your connection string
         const blobServiceClient = BlobServiceClient.fromConnectionString(connection_string);
         
-        const containerClient = blobServiceClient.getContainerClient("mahasiswa");
+        const containerClient = blobServiceClient.getContainerClient("activity");
         
         const blockBlobClient = containerClient.getBlockBlobClient(file.name);
      

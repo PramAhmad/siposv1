@@ -72,6 +72,7 @@ const submit = async () => {
     navigateTo("/admin/mahasiswa");
   }
 };
+
 const reset = async()=>{
   name.value = ''
   npm.value = ''
