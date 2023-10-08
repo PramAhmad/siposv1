@@ -6,7 +6,7 @@ definePageMeta({
 
 const mahasiswa = ref('');
 const total_bayar = ref('');
-const mahasiswas = ref([]);
+
 const alert = ref(false);
 const supabase = useSupabaseClient();
 const $route = useRoute();
@@ -35,6 +35,9 @@ const filterMahasiswa = async(e)=>{
     console.error(error);
   }
 }
+const selectMahasiswa = (selectedMahasiswa) => {
+  mahasiswa.value = selectedMahasiswa.id; // Set the Mahasiswa ID on click
+};
 
 const sendToDiscord = async (message) => {
   const discordWebhookURL = 'https://discordapp.com/api/webhooks/1157344823666294784/5l_evA92FI2JNTOHlyUhj-zr_xMLyhaLAmII8hPOMhubBErwUfiwqLTRJON72sISLn4W'; 
@@ -64,17 +67,11 @@ const sendToDiscord = async (message) => {
 const addPayment = async () => {
   alert.value = false;
 
-  const mahasiswaId = mahasiswa.value;
-  const selectedMahasiswa = mahasiswas.value.find((m) => m.id === mahasiswaId);
-
-  if (!selectedMahasiswa) {
-    console.error('Mahasiswa tidak ditemukan');
-    return;
-  }
+  
 
   try {
     const { error } = await supabase.from('payment').insert({
-      mahasiswa_id: mahasiswaId,
+      mahasiswa_id: filter.value[0].id,
       payment_id: $route.params.room,
       total_bayar: total_bayar.value,
       // tanggal_bayar: new Date().toLocaleDateString(),
@@ -88,7 +85,7 @@ const addPayment = async () => {
   Terimakasih sudah bayar
 
  Informasi Pembayaran:
-  -Nama: ${selectedMahasiswa.nama}
+  -Nama: ${filter.value[0].nama}
   -Total Bayar: Rp ${total_bayar.value}
   -Tanggal Bayar: ${new Date().toLocaleDateString()} 
   -Nama Pembayaran: ${room.value[0].nama_pembayaran}
@@ -141,14 +138,14 @@ onMounted(() => {
           <FormField label="Masukan Nama dan jumlah">
           <!-- select 2 mahasiswa -->
           <FormControl v-model="mahasiswa" :icon="mdiMail" placeholder="Nama Mahasiswa" @input="filterMahasiswa" />
-            <div v-if="mahasiswa">
-              <div v-for="m in filter" :key="m.id" >
-                <!-- add the value to model mahasiswa -->
-                <div v-if="mahasiswa != m.nama" class="pram"  @click="mahasiswa = m.nama">
-                 <span  class="cursor-pointer" >{{m.nama}} ({{m.kelas }})</span>
-                 </div>
-              </div>
+
+            <!-- radio from filter -->
+            <div v-for="f in filter" :key="f.id" class="flex items-center">
+              <input type="radio" :value="f.id" class="mr-2" />
+              <label>{{ f.nama }} - {{ f.kelas }}</label>
             </div>
+
+            
             <FormControl v-model="total_bayar" :icon="mdiMail" placeholder="jumlah bayar" />
           </FormField>
 

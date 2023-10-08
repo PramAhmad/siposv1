@@ -7,11 +7,15 @@ import FormControl from "@/components/FormControl.vue";
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
 import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.vue";
+// props
+import FotoMahasiswa from "@/components/FotoMahasiswa.vue";
+
 
 
 
 const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
 const fotopath = ref();
+const urlfoto = ref('')
 
 const name = ref('');
 const npm = ref('');
@@ -48,25 +52,26 @@ const sendToDiscord = async (message) => {
 };
 
 const submit = async () => {
-  alert.value = false;
+  console.log(urlfoto.value)
+  // alert.value = false;
 
-  const { data, error } = await supabase.from('mahasiswa').insert({
-    nama: name.value,
-    npm: npm.value,
-    kelas: kelas.value,
-    foto: url.value + fotopath.value
-  });
+  // const { data, error } = await supabase.from('mahasiswa').insert({
+  //   nama: name.value,
+  //   npm: npm.value,
+  //   kelas: kelas.value,
+  //   foto: url.value + fotopath.value
+  // });
 
-  alert.value = true;
+  // alert.value = true;
 
-  if (error) {
-    console.log(error);
-  } else {
+  // if (error) {
+  //   console.log(error);
+  // } else {
 
-    const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${url.value + fotopath.value}`;
-    sendToDiscord(messageToDiscord);
-    navigateTo("/admin/mahasiswa");
-  }
+  //   const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${url.value + fotopath.value}`;
+  //   sendToDiscord(messageToDiscord);
+  //   navigateTo("/admin/mahasiswa");
+  // }
 };
 const reset = async()=>{
   name.value = ''
@@ -107,7 +112,9 @@ const reset = async()=>{
           <FormField label="With help line" help="Do not enter the leading zero">
             <FormControl v-model="npm" type="tel" placeholder="Your npm number" />
           </FormField>
-          <FotoMahasiswa v-model:path="fotopath"  />
+          <FotoMahasiswa v-model:path="urlfoto" />
+
+          
           <div>
             <BaseButtons>
               <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>
