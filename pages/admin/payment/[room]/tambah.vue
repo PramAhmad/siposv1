@@ -74,7 +74,7 @@ const addPayment = async () => {
       mahasiswa_id: filter.value[0].id,
       payment_id: $route.params.room,
       total_bayar: total_bayar.value,
-      // tanggal_bayar: new Date().toLocaleDateString(),
+ 
     });
 
     if (error) {
@@ -96,7 +96,7 @@ const addPayment = async () => {
       total_bayar.value = '';
       sendToDiscord(messageToDiscord);
       alert.value = true;
-      // navigateTo(`/admin/payment/${$route.params.room}/tambah`);
+     
     }
   } catch (error) {
     console.error(error);
@@ -111,7 +111,7 @@ const reset = () => {
 const router = useRouter();
 
 onMounted(() => {
-  // getMahasiswa();  
+  
   getInfoRoom();
 });
 </script>

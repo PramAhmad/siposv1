@@ -1,68 +1,45 @@
-<script setup>
-const props = defineProps(['path'])
-const { path } = toRefs(props)
-
-const emit = defineEmits(['update:path', 'upload'])
-
-const supabase = useSupabaseClient()
-
-const uploading = ref(false)
-const src = ref('')
-const files = ref()
-
-
-
-const submit = async (evt) => {
-  files.value = evt.target.files
-  try {
-    uploading.value = true
-
-    const file = files.value[0]
-    const fileExt = file.name.split('.').pop()
-    const fileName = `${Math.random()}.${fileExt}`
-    const filePath = `${fileName}`
-    console.log(filePath)
-
-    let { error: uploadError } = await supabase.storage.from('activity').upload(filePath, file)
-
-    if (uploadError) throw uploadError
-
-    emit('update:path', filePath)
-    emit('upload')
-  } catch (error) {
-    alert(error.message)
-  } finally {
-    uploading.value = false
-  }
-}
-
-
-</script>
-
+<!-- components/ImageUploader.vue -->
 <template>
   <div>
-    
-    <img
-      v-if="src"
-      :src="src"
-      alt="Avatar"
-      class="avatar image"
-      style="width: 10em; height: 10em;"
-    />
-   
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="single">
-        {{ uploading ? 'Uploading ...' : 'Upload Here' }}
-      </label>
-      <input
-        
-        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 p-2"
-        type="file"
-        id="single"
-        accept="image/*"
-        @change="submit"
-        :disabled="uploading"
-      />
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-300 " id="file_input_help">PNG, JPG ,JPEG only.</p>
-    </div>
-
+    <input type="file" @change="uploadImage" accept="image/*" />
+  </div>
 </template>
+
+<script setup>
+import { BlobServiceClient } from "@azure/storage-blob";
+
+const urlfoto = ref('')
+// props
+const props = defineProps(["path"])  
+const emit = defineEmits(["update:path", "upload"])
+   const uploadImage =  async (event) =>{
+      const file = event.target.files[0];
+    if (file) {
+        const connection_string ="BlobEndpoint=https://sisfor23.blob.core.windows.net/;QueueEndpoint=https://sisfor23.queue.core.windows.net/;FileEndpoint=https://sisfor23.file.core.windows.net/;TableEndpoint=https://sisfor23.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwlacupiytfx&se=2024-10-08T06:36:44Z&st=2023-10-07T22:36:44Z&spr=https&sig=afa6eRmfFh783CPHQ4aHFS0blfZkseFH0bpf3jv3JlM%3D"; // Replace with your connection string
+        const blobServiceClient = BlobServiceClient.fromConnectionString(connection_string);
+        
+        const containerClient = blobServiceClient.getContainerClient("mahasiswa");
+        
+        const blockBlobClient = containerClient.getBlockBlobClient(file.name);
+     
+
+
+        try {
+          
+          await blockBlobClient.uploadBrowserData(file, { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
+    console.log("Image uploaded successfully!");
+    // get th url image
+    urlfoto.value = blockBlobClient.url;
+    emit('update:path', urlfoto.value)
+    emit('upload')
+    
+console.log(urlfoto.value)
+          
+        } catch (error) {
+          console.error("Failed to upload image:", error);
+        }
+      }
+    }
+ 
+
+</script>
