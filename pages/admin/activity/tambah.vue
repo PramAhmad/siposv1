@@ -3,8 +3,7 @@ definePageMeta({
   middleware: 'auth'
 })
 
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/activity/");
-const fotopath = ref();
+const urlfoto = ref('');
 
 const title = ref('');
 const desc = ref('');
@@ -42,12 +41,11 @@ const sendToDiscord = async (message) => {
 
 const submit = async () => {
   alert.value = false;
-  console.log(fotopath.value)
-
+  
   const { data, error } = await supabase.from('activity').insert({
     title: title.value,
     desc: desc.value,
-    image: url.value + fotopath.value
+    image: urlfoto.value,
   });
 
   alert.value = true;
@@ -56,7 +54,7 @@ const submit = async () => {
     console.log(error);
   } else {
 
-    const messageToDiscord = `**${title.value}**\n\n${desc.value}\n\n${url.value + fotopath.value}`;
+    const messageToDiscord = `**${title.value}**\n\n${desc.value}\n\n${urlfoto.value}`;
     sendToDiscord(messageToDiscord);
     navigateTo("/admin/activity");
   }
@@ -95,7 +93,7 @@ const submit = async () => {
             placeholder="Hos its it going?"
           />
         </FormField>
-          <FotoActivity v-model:path="fotopath"  />
+          <FotoActivity v-model:path="urlfoto"  />
           <div>
             <BaseButtons>
               <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Tambah</button>

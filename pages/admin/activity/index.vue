@@ -2,7 +2,7 @@
 definePageMeta({
   middleware: 'auth'
 })
-
+import {mdiTrashCan} from "@mdi/js";
 const activity = ref([]);
 const loading = ref(false)
 const supabase = useSupabaseClient();
@@ -11,7 +11,7 @@ const getActivity = async ()=>{
     const { data, error } = await supabase
     .from('activity')
     .select()
-    .order('id', { ascending: true })
+    .order('id', { ascending: false })
     activity.value = data
     loading.value = true
 }
@@ -41,9 +41,7 @@ onMounted(()=>{
       <SectionTitleLineWithButton :icon="mdiTableBorder" title="activity" main>
         <NuxtLink to="/admin/activity/tambah" class="rounded-full bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3">Tambah activity</NuxtLink>
       </SectionTitleLineWithButton>
-      <NotificationBar color="info" :icon="mdiMonitorCellphone">
-        <b>Responsive table.</b> Collapses on mobile
-      </NotificationBar>
+     
       <CardBox class="md:block hidden">
         <div  v-for="data,i in activity" :key="i">
             <div class="flex justify-end gap-3 my-3">
@@ -63,7 +61,7 @@ onMounted(()=>{
                                 />
                             </BaseButtons>
             </div>
-            <img :src="data.image" alt="">
+            <img :src="data.image" alt="" class="w-2/3 h-2/3 object-contain">
             <h3 class="text-gray-800 dark:text-white font-bold text-left my-3 text-2xl">{{ data.title }}</h3>
             <p class="text-md text-gray-700 dark:text-gray-200 sfont-semibold text-left ">{{ data.desc }}</p>
         </div>
@@ -94,7 +92,7 @@ onMounted(()=>{
                     <td data-label="Judul">{{ data.title }}</td>
                    
                     <td>
-                      <img :src="data.image" alt="" class="w-[100%] h-[100%]">
+                      <img :src="data.image" alt="" class="max-w-full w-full h-[100%]">
                     </td>
                     <td data-label="desc">{{ data.desc }}</td>
                    
