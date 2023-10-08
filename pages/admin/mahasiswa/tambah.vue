@@ -13,7 +13,6 @@ import FotoMahasiswa from "@/components/FotoMahasiswa.vue";
 
 
 
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
 const fotopath = ref();
 const urlfoto = ref('')
 
@@ -53,25 +52,25 @@ const sendToDiscord = async (message) => {
 
 const submit = async () => {
   console.log(urlfoto.value)
-  // alert.value = false;
+  alert.value = false;
 
-  // const { data, error } = await supabase.from('mahasiswa').insert({
-  //   nama: name.value,
-  //   npm: npm.value,
-  //   kelas: kelas.value,
-  //   foto: url.value + fotopath.value
-  // });
+  const { data, error } = await supabase.from('mahasiswa').insert({
+    nama: name.value,
+    npm: npm.value,
+    kelas: kelas.value,
+    foto: urlfoto.value,
+  });
 
-  // alert.value = true;
+  alert.value = true;
 
-  // if (error) {
-  //   console.log(error);
-  // } else {
+  if (error) {
+    console.log(error);
+  } else {
 
-  //   const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${url.value + fotopath.value}`;
-  //   sendToDiscord(messageToDiscord);
-  //   navigateTo("/admin/mahasiswa");
-  // }
+    const messageToDiscord = `Data mahasiswa baru ditambahkan:\nNama: ${name.value}\nNPM: ${npm.value}\nKelas: ${kelas.value}\nFoto: ${urlfoto.value}`;
+    sendToDiscord(messageToDiscord);
+    navigateTo("/admin/mahasiswa");
+  }
 };
 const reset = async()=>{
   name.value = ''
@@ -113,7 +112,7 @@ const reset = async()=>{
             <FormControl v-model="npm" type="tel" placeholder="Your npm number" />
           </FormField>
           <FotoMahasiswa v-model:path="urlfoto" />
-
+          <p>{{ urlfoto }}</p>
           
           <div>
             <BaseButtons>

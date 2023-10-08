@@ -5,8 +5,10 @@ definePageMeta({
 import {
   mdiMonitorCellphone,
   mdiTableBorder,
-
+  mdiChartTimelineVariant,
   mdiTrashCan,
+  mdiAccountMultiple,
+  mdiCartOutline
 
 } from "@mdi/js";
 import SectionMain from "@/components/SectionMain.vue";
@@ -18,18 +20,51 @@ import SectionTitleLineWithButton from "@/components/SectionTitleLineWithButton.
 import BaseButton from "@/components/BaseButton.vue";
 import BaseButtons from "@/components/BaseButtons.vue";
 
+const supabase = useSupabaseClient();
 
 const user = useSupabaseUser()
-console.log(user)
-const chartData = ref(null);
+const transaksi = ref([])
+const chartData = ref([]);
+const mahasiswa  = ref([])
+const countMahasiswa = async ()=>{
+  const {data,error} = await supabase.from('mahasiswa').select('id')
+  mahasiswa.value = data
 
-// const fillChartData = () => {
-//   chartData.value = chartConfig.sampleChartData();
-// };
+}
 
-// onMounted(() => {
-//   fillChartData();
-// });
+const countTransaksi = async()=>{
+  // count total transaksi
+  const {data,error} = await supabase.from('payment').select('id')
+  transaksi.value = data
+}
+
+const calcuateTotalBayarInEveryRoom = async()=>{
+  const {data,error} = await supabase.from('room_payment').select('id,nama_pembayaran')
+  if(error){
+    console.error(error)
+  }else{
+    const result = await Promise.all(data.map(async(item)=>{
+      const {data,error} = await supabase.from('payment').select('total_bayar').eq('payment_id',item.id)
+      if(error){
+        console.error(error)
+      }else{
+        const total = data.reduce((acc,curr)=>acc+curr.total_bayar,0)
+        return {
+          ...item,
+          total_bayar: total
+        }
+      }
+    }))
+    chartData.value = result
+    console.log(result)
+  }
+}
+onMounted(()=>{
+  countMahasiswa()
+  countTransaksi()
+
+  calcuateTotalBayarInEveryRoom()
+})
 
 </script>
 
@@ -52,17 +87,19 @@ const chartData = ref(null);
             trend-type="up"
             color="text-emerald-500"
             :icon="mdiAccountMultiple"
-            :number="512"
-            label="Clients"
+            :number="mahasiswa.length"
+            label="Mahasiswa"
+            class="border border-slate-200"
           />
           <CardBoxWidget
             trend="12%"
             trend-type="down"
             color="text-blue-500"
             :icon="mdiCartOutline"
-            :number="7770"
-            prefix="$"
-            label="Sales"
+            :number="transaksi.length"
+            prefix=""
+            label="Transaksi"
+            class="border border-slate-200"
           />
           <CardBoxWidget
             trend="Overflow"
@@ -72,58 +109,29 @@ const chartData = ref(null);
             :number="256"
             suffix="%"
             label="Performance"
+            class="border border-slate-200"
           />
         </div>
   
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <div class="flex flex-col justify-between">
-            <CardBoxTransaction
-              v-for="(transaction, index) in transactionBarItems"
-              :key="index"
-              :amount="transaction.amount"
-              :date="transaction.date"
-              :business="transaction.business"
-              :type="transaction.type"
-              :name="transaction.name"
-              :account="transaction.account"
-            />
-          </div>
-          <div class="flex flex-col justify-between">
-            <CardBoxClient
-              v-for="client in clientBarItems"
-              :key="client.id"
-              :name="client.name"
-              :login="client.login"
-              :date="client.created"
-              :progress="client.progress"
-            />
-          </div>
-        </div>
+    
   
-        <SectionBannerStarOnGitHub class="mt-6 mb-6" />
-  
-        <SectionTitleLineWithButton :icon="mdiChartPie" title="Trends overview">
-          <BaseButton
-            :icon="mdiReload"
-            color="whiteDark"
-            @click="fillChartData"
-          />
-        </SectionTitleLineWithButton>
-  
-        <CardBox class="mb-6">
-          <div v-if="chartData">
-            <line-chart :data="chartData" class="h-96" />
-          </div>
-        </CardBox>
-  
-        <SectionTitleLineWithButton :icon="mdiAccountMultiple" title="Clients" />
-  
-        <NotificationBar color="info" :icon="mdiMonitorCellphone">
-          <b>Responsive table.</b> Collapses on mobile
-        </NotificationBar>
-  
-        <CardBox has-table>
-          <TableSampleClients />
+        <CardBox has-table class="md:w-1/2 w-full">
+          <table>
+            <thead>
+              <tr>
+                <th >no</th>
+                <th >Pembayaran</th>
+                <th >Jumlah Uang</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="data,i in chartData" :key="i">
+                <td data-label="no">{{ i+1 }}</td>
+                <td data-label="pembayaran">{{ data.nama_pembayaran }}</td>
+                <td data-label="jumlah uang">{{ data.total_bayar }}</td>
+              </tr>
+            </tbody>
+          </table>
         </CardBox>
       </SectionMain>
     </NuxtLayout>
