@@ -51,7 +51,7 @@ const sendToDiscord = async (message) => {
 };
 
 const submit = async () => {
-  console.log(urlfoto.value)
+ 
   alert.value = false;
 
   const { data, error } = await supabase.from('mahasiswa').insert({
@@ -103,9 +103,9 @@ const reset = async()=>{
             <FormControl v-model="name" placeholder="Your Name" :icon="mdiAccount" />
             <!-- Use a dropdown menu for selecting kelas -->
             <select v-model="kelas" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 p-2">
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
             </select>
           </FormField>
 
@@ -113,7 +113,7 @@ const reset = async()=>{
             <FormControl v-model="npm" type="tel" placeholder="Your npm number" />
           </FormField>
           <FotoMahasiswa v-model:path="urlfoto" />
-          <p>{{ urlfoto }}</p>
+         
           
           <div>
             <BaseButtons>
