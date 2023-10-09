@@ -55,6 +55,11 @@ const calcuateTotalBayarInEveryRoom = async()=>{
         }
       }
     }))
+    // format total bayar to rupiah
+    result.forEach((item)=>{
+      item.total_bayar = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(item.total_bayar)
+    })
+    
     chartData.value = result
     console.log(result)
   }

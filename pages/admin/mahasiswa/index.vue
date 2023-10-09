@@ -94,7 +94,7 @@ onMounted(()=>{
                     <td data-label="no">{{ i+1 }}</td>
                     <td data-label="npm">{{ data.npm }}</td>                
                     <td data-label="nama">{{ data.nama }}</td>                 
-                    <td data-label="kelas">{{ data.kelas }}</td>
+                    <td data-label="kelas" class="uppercase">{{ data.kelas }}</td>
                     <td class="before:hidden lg:w-1 whitespace-nowrap ">
                       <div class="flex gap-3">
 
