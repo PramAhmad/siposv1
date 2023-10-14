@@ -94,7 +94,9 @@ const deletePayment = async()=>{
   // confirm yakin akan menghapus
   const confirm = window.confirm('yakin akan menghapus?')
   if(confirm){
-    const {data,error} = await supabase.from('room_payment').delete().eq('id', $route.params.room)
+    const {data,error} = await supabase.from('room_payment').update({
+      is_delete: 1
+    }).eq('id', $route.params.room)
     if(error){
       console.log(error)
     }

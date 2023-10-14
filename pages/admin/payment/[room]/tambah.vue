@@ -6,7 +6,7 @@ definePageMeta({
 
 const mahasiswa = ref('');
 const total_bayar = ref('');
-
+const user = useSupabaseUser();
 const alert = ref(false);
 const supabase = useSupabaseClient();
 const $route = useRoute();
@@ -18,6 +18,7 @@ const getInfoRoom = async () => {
       .from('room_payment')
       .select('id, nama_pembayaran, desc')
       .eq('id', $route.params.room);
+
     room.value = data;
   } catch (error) {
     console.error(error);
@@ -35,9 +36,7 @@ const filterMahasiswa = async(e)=>{
     console.error(error);
   }
 }
-const selectMahasiswa = (selectedMahasiswa) => {
-  mahasiswa.value = selectedMahasiswa.id; // Set the Mahasiswa ID on click
-};
+
 
 const sendToDiscord = async (message) => {
   const discordWebhookURL = 'https://discordapp.com/api/webhooks/1157344823666294784/5l_evA92FI2JNTOHlyUhj-zr_xMLyhaLAmII8hPOMhubBErwUfiwqLTRJON72sISLn4W'; 
@@ -74,6 +73,7 @@ const addPayment = async () => {
       mahasiswa_id: filter.value[0].id,
       payment_id: $route.params.room,
       total_bayar: total_bayar.value,
+      add_by: user.value.id,
  
     });
 
