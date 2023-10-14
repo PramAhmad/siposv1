@@ -49,8 +49,8 @@
       <td data-label="nama">
         <NuxtLink :to="`/admin/mahasiswa/` + data.mahasiswa_id.id">{{ data.mahasiswa_id.nama }}</NuxtLink>
       </td>
-      <td data-label="kelas">{{ data.mahasiswa_id.kelas }}</td>
-      <td data-label="jumlah bayar">Rp. {{ data.total_bayar }}</td>
+      <td data-label="kelas" class="uppercase">{{ data.mahasiswa_id.kelas }}</td>
+      <td data-label="jumlah bayar"> {{ data.total_bayar }}</td>
       <td data-label="jumlah bayar">{{ data.tanggal_bayar }}</td>
       <td class="before:hidden lg:w-1 whitespace-nowrap">
         <!-- pembungkus 2 buttton -->
@@ -118,6 +118,13 @@ import { mdiTableBorder, mdiEye, mdiTrashCan } from "@mdi/js";
     if (error) {
       console.error(error);
     }
+    // format total bayar to rupiah
+    data.forEach((item) => {
+      item.total_bayar = new Intl.NumberFormat("id-ID", {
+        style: "currency",
+        currency: "IDR",
+      }).format(item.total_bayar);
+    });
     payment.value = data.map((item) => ({
       ...item,
       tanggal_bayar: formatDateCustom(item.tanggal_bayar),

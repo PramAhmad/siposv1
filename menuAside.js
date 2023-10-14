@@ -56,7 +56,7 @@ export default [
     icon: mdiAlarm,
   },
   {
-    to: "/masukan",
+    to: "/admin/masukan",
     label: "Masukan",
     icon: mdiMailbox,
   },

@@ -1,7 +1,7 @@
 <!-- components/ImageUploader.vue -->
 <template>
   <div>
-    <input type="file" @change="uploadImage" accept="image/*" />
+    <input type="file" @change="uploadImage" accept="image/*" class="w-full dark:bg-gray-800 py-2 rounded-md border border-gray-900 "/>
   </div>
 </template>
 

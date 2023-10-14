@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 
 
 const alert = ref(false);
@@ -11,11 +11,10 @@ const submit = async () => {
   alert.value = false;
     const {data,error} = await supabase.auth.admin.createUser({
         email: mail.value,
-        email_confirmation: true,
         password: password.value,
-        user_metadata: {
-            role: role.value
-        }
+       options: {
+        data: { role: role.value },
+      },
     })
     if(error){
         console.log(error)
@@ -59,7 +58,7 @@ const submit = async () => {
           </FormField>
 
           <FormField label="Password" help="Do not enter the leading zero">
-            <FormControl v-model="password  " type="password" placeholder="Your password" />
+            <FormControl v-model="password" type="password" placeholder="Your password" />
           </FormField>
         
           <div>
@@ -72,19 +71,4 @@ const submit = async () => {
       </CardBox>
     </SectionMain>
   </NuxtLayout>
-</template> -->
-
-
-<template>
-  <div>
-    
-  </div>
 </template>
-<script>
-export default {
-  
-}
-</script>
-<style lang="">
-  
-</style>

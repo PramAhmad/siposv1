@@ -8,22 +8,27 @@
                 <!-- single layout -->
 
                 <CardBox >
-    <BaseLevel type="justify-around lg:justify-center h-full">
-      <img :src="fotopath" 
-      class=" block h-full min-w-[300px] bg-clip-content  max-w-full bg-gray-100 dark:bg-slate-800 lg:mx-12"
-       alt="">
-      <div class="space-y-3 text-center md:text-left lg:mx-12">
-        <div class="flex justify-center md:block">
-        
-        </div>
-        <h1 class="text-2xl">
-          Title, <b>{{ title }}</b
-          >
-        </h1>
-        <p> Judul: <b>{{ desc  }}</b></p>
-       
+                  <div class="bg-white rounded-lg shadow-md p-6">
+  <!-- Information Grid -->
+  <div class="grid grid-cols-2 gap-4 mb-6">
+    <div>
+
+      <img :src="fotopath" alt="">
+    </div>
+      <div>
+        <h2 class="text-xl font-semibold">Informasi Aktivitas</h2>
+        <div class="max-w-full">
+            <h3 class="text-gray-800 dark:text-white font-semibold text-3xl my-2">Nama Activity: <span>{{ title }}</span></h3>
+            <!-- Apply the whitespace-pre-line class to the description container -->
+            <p class="text-gray-800 dark:text-white font-semibold text-md my-2 max-w-full break-words">
+   <span>{{ desc }}</span>
+</p></div>
       </div>
-    </BaseLevel>
+  </div>
+  
+  <!-- Table Grid -->
+</div>
+
   </CardBox>
   <form method="post" @submit.prevent="updateActivity">
         <CardBox>

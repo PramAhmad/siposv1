@@ -32,7 +32,10 @@ definePageMeta({
 const supabase = useSupabaseClient()
 const rooms = ref([])
 const getPaymentRoom = async ()=>{
-   const { data, error } = await supabase.from('room_payment').select('*').order('id', { ascending: false })
+   const { data, error } = await supabase.from('room_payment').select('*')
+    .eq('is_delete', 0)
+  //is_delte != 1
+   .order('id', { ascending: false })
  
    if (error) {
        console.log(error);
