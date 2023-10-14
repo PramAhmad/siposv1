@@ -58,7 +58,7 @@ const submit = async () => {
           </FormField>
 
           <FormField label="Password" help="Do not enter the leading zero">
-            <FormControl v-model="password  " type="password" placeholder="Your password" />
+            <FormControl v-model="password" type="password" placeholder="Your password" />
           </FormField>
         
           <div>
