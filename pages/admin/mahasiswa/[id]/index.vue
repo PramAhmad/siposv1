@@ -9,8 +9,7 @@ import {
 
 
 
-const url = ref("https://wsgwhdbimgdepfxktxlo.supabase.co/storage/v1/object/public/mahasiswa/");
-const fotopath = ref();
+const path = ref();
 const nama = ref()
 const npm = ref()
 const kelas = ref()
@@ -21,9 +20,10 @@ const loading = ref(false)
 const alert = ref(false)
 
 const updateMahasiswa = async()=>{
+  console.log(path.value)
     // validate jika foto kosong jangan update fotonya
    alert.value = false
-    if(fotopath.value ){
+    if(path.value == ''){
         const {data,error} = await supabase.from('mahasiswa').update({
             nama: nama.value,
             npm: npm.value,
@@ -42,7 +42,7 @@ const updateMahasiswa = async()=>{
           nama: nama.value,
           npm: npm.value,
           kelas: kelas.value,
-          foto: url.value + fotopath.value
+          foto: path.value
       }).eq('id', $route.params.id)
       if(error){
           console.log(error)
@@ -69,7 +69,7 @@ const getSingleMahasiswa = async() => {
         nama.value = mahasiswaData.nama || '';
         npm.value = mahasiswaData.npm || '';
         kelas.value = mahasiswaData.kelas || '';
-        fotopath.value = mahasiswaData.foto || '';
+        path.value = mahasiswaData.foto || '';
     }
     if (error) {
         console.log(error)
@@ -131,7 +131,7 @@ onMounted(() => {
         <form method="post" @submit.prevent="updateMahasiswa">
         <CardBox>
           <FormField label="New Profile" help="Max 500kb">
-            <FotoMahasiswa v-model:path="fotopath"/>
+            <FotoMahasiswa v-model:path="path"/>
           </FormField>
 
           <FormField label="nama" help="Masukan nama baru">

@@ -1,0 +1,15 @@
+{
+  "@vite/client": {
+    "isEntry": true,
+    "file": "@vite/client",
+    "css": [],
+    "module": true,
+    "resourceType": "script"
+  },
+  "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/nuxt/dist/app/entry.js": {
+    "resourceType": "script",
+    "module": true,
+    "isEntry": true,
+    "file": "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/nuxt/dist/app/entry.js"
+  }
+}

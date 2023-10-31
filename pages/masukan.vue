@@ -6,11 +6,13 @@
 
 <template>
   <div>
-    <!-- <Head>
-            <Title>ROAST - Home</Title>
-         </Head> -->
+    <Head>
+            <Title>Sistem Informasi - Masukan</Title>
+         </Head>
     <NuxtLayout>
-      
+      <MyNavbar class="pb-10"/>
+      <PageContact/> 
+      <Footer/>
     </NuxtLayout>
   </div>
 </template>

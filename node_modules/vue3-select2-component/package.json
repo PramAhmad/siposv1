@@ -1,0 +1,67 @@
+{
+  "name": "vue3-select2-component",
+  "version": "0.1.7",
+  "description": "select2 component in vue3.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godbasin/vue-select2.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "select2"
+  ],
+  "author": "godbasin <wangbeishan@163.com> (https://github.com/godbasin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/godbasin/vue-select2/issues"
+  },
+  "main": "src/Select2.vue",
+  "browser": {
+    "./sfc": "src/Select2.vue"
+  },
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
+  ],
+  "scripts": {
+    "build:publish": "vue-cli-service build --target lib --name Select2 src/Select2.vue",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "homepage": "https://github.com/godbasin/vue-select2#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "select2": "^4.0.7-rc.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "vue": "^3.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

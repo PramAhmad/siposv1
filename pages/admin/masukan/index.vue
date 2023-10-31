@@ -59,7 +59,8 @@ const getMasukan = async ()=>{
     console.log(error)
   }else{
     masukan.value = data
-    loading.value = true
+    loading.value = 
+    console.log(data)
   }
 }
 

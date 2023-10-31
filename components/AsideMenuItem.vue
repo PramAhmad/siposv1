@@ -46,7 +46,9 @@ const menuClick = (event) => {
 </script>
 
 <template>
+
   <li>
+    
     <component
       :is="item.to ? RouterLink : 'a'"
       v-slot="vSlot"
