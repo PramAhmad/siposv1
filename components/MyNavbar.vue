@@ -34,15 +34,7 @@
             Aktivitas
           </NuxtLink>
         </li>
-        <li>
-          <NuxtLink
-            to="/berita"
-            class="text-slate-800 hover:text-[#63B4FF] hover:border-b hover:transition duration-100 border-[#63B4FF]"
-            :class="{ 'text-sky-500': $route.path === '/berita' }"
-          >
-            Berita
-          </NuxtLink>
-        </li>
+       
         <li>
           <NuxtLink
             to="/masukan"
@@ -81,7 +73,7 @@
               <li class="my-4"  ><NuxtLink  to="/">Beranda</NuxtLink></li>
               <li class="my-4"><NuxtLink  to="/mahasiswa">Mahasiswa</NuxtLink></li>
               <li class="my-4"><NuxtLink  to="/activity">Aktivitas</NuxtLink></li>
-              <li class="my-4"><NuxtLink  to="/berita">Berita</NuxtLink></li>
+             
               <li class="my-4"><NuxtLink  to="/masukan">Masukkan</NuxtLink></li>
              
             </ul>

@@ -4,6 +4,8 @@ const supabase = useSupabaseClient()
 
 const event = ref([])
 const loading = ref(false)
+let limits = 1 
+let offset = 0
 
 
 const getEvent = async()=>{
@@ -11,6 +13,8 @@ const getEvent = async()=>{
     const {data,error} = await supabase
     .from("activity")
     .select()
+    .range(offset,offset+limits)
+
   
 
     if(error){
@@ -31,6 +35,32 @@ const getEvent = async()=>{
         
     }
 }
+
+const Loadmore = async () => {
+  loading.value = true
+  offset += limits + 1
+  const { data, error } = await supabase
+    .from("activity")
+    .select()
+    .range(offset, offset + limits)
+  if (error) {
+    console.log(error)
+  } else {
+    // format date created at
+    data.map((item) => {
+      const date = new Date(item.created_at)
+      const day = date.getDate()
+      const month = date.getMonth()
+      const year = date.getFullYear()
+      const format = `${day}/${month}/${year}`
+      item.created_at = format
+    })
+    event.value = [...event.value, ...data]
+    loading.value = false
+  }
+}
+
+
 onMounted(()=>{
     getEvent()
 
@@ -80,7 +110,11 @@ onMounted(()=>{
     </article>
       </div>
     </div>
-    <Footer class="mt-20"/>
+    <!-- loadmore -->
+    <div class="flex justify-center">
+      <button @click="Loadmore" class="bg-[#63B4FF] text-white/90 px-5 py-2 rounded-full">Load More</button>
+    </div>
+    <Footer class="mt-16"/>
   </div>
 </template>
 <style>
