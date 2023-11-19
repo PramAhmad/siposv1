@@ -34,7 +34,15 @@
             Aktivitas
           </NuxtLink>
         </li>
-       
+        <li>
+          <NuxtLink
+            to="/sifest"
+            class="text-slate-800 hover:text-[#63B4FF] hover:border-b hover:transition duration-100 border-[#63B4FF]"
+            :class="{ 'text-sky-500': $route.path === '/sifest' }"
+          >
+            Sifest
+          </NuxtLink>
+        </li>
         <li>
           <NuxtLink
             to="/masukan"
