@@ -81,7 +81,7 @@
               <li class="my-4"  ><NuxtLink  to="/">Beranda</NuxtLink></li>
               <li class="my-4"><NuxtLink  to="/mahasiswa">Mahasiswa</NuxtLink></li>
               <li class="my-4"><NuxtLink  to="/activity">Aktivitas</NuxtLink></li>
-              <li class="my-4"><NuxtLink  to="/activity">Sifess</NuxtLink></li>
+              <li class="my-4"><NuxtLink  to="/sifest">Sifess</NuxtLink></li>
               <li class="my-4"><NuxtLink  to="/masukan">Masukkan</NuxtLink></li>
              
             </ul>
