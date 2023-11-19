@@ -1,1 +1,0 @@
-import{a1 as s}from"./entry.8c7ce858.js";const t=s("main",{state:()=>({userName:null,userEmail:null,userAvatar:null,isFieldFocusRegistered:!1,clients:[],history:[]}),actions:{setUser(e){e.name&&(this.userName=e.name),e.email&&(this.userEmail=e.email),e.avatar&&(this.userAvatar=e.avatar)}}});export{t as u};

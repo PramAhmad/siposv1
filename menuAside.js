@@ -10,13 +10,7 @@ import {
   mdiMail,
   mdiMailbox,
 } from "@mdi/js";
-import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(
-  "https://kjklvfzkbunulydidzrp.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtqa2x2ZnprYnVudWx5ZGlkenJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTY5MTIwODksImV4cCI6MjAxMjQ4ODA4OX0.CDjv4sjjbNZAGgix27pKuPT2bAbKPm2XVmYF2f1t1T4"
-);
-const { data: { user } } = await supabase.auth.getUser()
-console.log(user)
+
 export default
  [
   

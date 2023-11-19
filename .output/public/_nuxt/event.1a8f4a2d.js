@@ -1,1 +1,0 @@
-import{c as e,b as o,o as n,f as _}from"./entry.8c7ce858.js";import"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js";import"https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js";const u={__name:"event",setup(c){return(a,r)=>{const t=_;return n(),e("div",null,[o(t)])}}};export{u as default};

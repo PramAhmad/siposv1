@@ -1,35 +1,41 @@
 const client_manifest = {
-  "_BaseButton.214b4472.js": {
+  "Mahasiswa.css": {
+    "resourceType": "style",
+    "file": "Mahasiswa.f56f9d4e.css",
+    "src": "Mahasiswa.css"
+  },
+  "_BaseButton.24471864.js": {
     "resourceType": "script",
     "module": true,
-    "file": "BaseButton.214b4472.js",
+    "file": "BaseButton.24471864.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_colors.7637652d.js"
+      "_colors.39339193.js",
+      "_swiper-vue.ec305aca.js"
     ]
   },
-  "_BaseButtons.1a714a7d.js": {
+  "_BaseButtons.46bb6fef.js": {
     "resourceType": "script",
     "module": true,
-    "file": "BaseButtons.1a714a7d.js",
+    "file": "BaseButtons.46bb6fef.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_swiper-vue.ec305aca.js"
     ]
   },
-  "_BaseDivider.3b35fdc1.js": {
+  "_BaseDivider.438dddb9.js": {
     "resourceType": "script",
     "module": true,
-    "file": "BaseDivider.3b35fdc1.js",
+    "file": "BaseDivider.438dddb9.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_swiper-vue.ec305aca.js"
     ]
   },
-  "_BaseLevel.99ced603.js": {
+  "_BaseLevel.8020a8fa.js": {
     "resourceType": "script",
     "module": true,
-    "file": "BaseLevel.99ced603.js",
+    "file": "BaseLevel.8020a8fa.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_swiper-vue.ec305aca.js"
     ]
   },
   "_BlobServiceClient.faa98db4.js": {
@@ -40,80 +46,140 @@ const client_manifest = {
       "___vite-browser-external.7d645feb.js"
     ]
   },
-  "_CardBox.6b3f7427.js": {
+  "_CardBox.f009d675.js": {
     "resourceType": "script",
     "module": true,
-    "file": "CardBox.6b3f7427.js",
+    "file": "CardBox.f009d675.js",
     "imports": [
+      "_swiper-vue.ec305aca.js",
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_FormControl.06cdc0db.js": {
+  "_Contact.074b2c52.js": {
     "resourceType": "script",
     "module": true,
-    "file": "FormControl.06cdc0db.js",
+    "file": "Contact.074b2c52.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_main.ad903eef.js",
-      "_colors.7637652d.js"
+      "_swiper-vue.ec305aca.js"
     ]
   },
-  "_FotoActivity.c7998302.js": {
+  "_Footer.eb85db64.js": {
     "resourceType": "script",
     "module": true,
-    "file": "FotoActivity.c7998302.js",
+    "file": "Footer.eb85db64.js",
+    "imports": [
+      "_nuxt-link.89c2be35.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_FormControl.5d398e67.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "FormControl.5d398e67.js",
+    "imports": [
+      "_swiper-vue.ec305aca.js",
+      "_main.a962d244.js",
+      "_colors.39339193.js"
+    ]
+  },
+  "_FotoActivity.7bcea822.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "FotoActivity.7bcea822.js",
     "imports": [
       "_BlobServiceClient.faa98db4.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_swiper-vue.ec305aca.js"
     ]
   },
-  "_FotoMahasiswa.f6c907e3.js": {
+  "_FotoMahasiswa.9bf4a0cc.js": {
     "resourceType": "script",
     "module": true,
-    "file": "FotoMahasiswa.f6c907e3.js",
+    "file": "FotoMahasiswa.9bf4a0cc.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
       "_BlobServiceClient.faa98db4.js"
     ]
   },
-  "_MahasiswaCard.87fa8894.js": {
+  "_Mahasiswa.5922a0b5.js": {
     "resourceType": "script",
     "module": true,
-    "file": "MahasiswaCard.87fa8894.js",
+    "css": [
+      "Mahasiswa.f56f9d4e.css"
+    ],
+    "file": "Mahasiswa.5922a0b5.js",
     "imports": [
-      "_PillTag.fc535c58.js",
-      "_BaseLevel.99ced603.js",
-      "_CardBox.6b3f7427.js",
-      "node_modules/nuxt/dist/app/entry.js"
-    ]
-  },
-  "_NotificationBarInCard.5405e40b.js": {
-    "resourceType": "script",
-    "module": true,
-    "file": "NotificationBarInCard.5405e40b.js",
-    "imports": [
-      "_colors.7637652d.js",
-      "node_modules/nuxt/dist/app/entry.js"
-    ]
-  },
-  "_PillTag.fc535c58.js": {
-    "resourceType": "script",
-    "module": true,
-    "file": "PillTag.fc535c58.js",
-    "imports": [
-      "_colors.7637652d.js",
-      "node_modules/nuxt/dist/app/entry.js"
-    ]
-  },
-  "_SectionMain.d4578193.js": {
-    "resourceType": "script",
-    "module": true,
-    "file": "SectionMain.d4578193.js",
-    "imports": [
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
-      "_BaseButton.214b4472.js",
+      "_nuxt-link.89c2be35.js",
       "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_logo.0c371e23.js"
+    ]
+  },
+  "Mahasiswa.f56f9d4e.css": {
+    "file": "Mahasiswa.f56f9d4e.css",
+    "resourceType": "style"
+  },
+  "_MahasiswaCard.ed40aa0d.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "MahasiswaCard.ed40aa0d.js",
+    "imports": [
+      "_PillTag.196d1a00.js",
+      "_BaseLevel.8020a8fa.js",
+      "_CardBox.f009d675.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_MyNavbar.865605e5.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "MyNavbar.865605e5.js",
+    "imports": [
+      "_nuxt-link.89c2be35.js",
+      "_silogo.b52ea66d.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_NotificationBarInCard.ae33a90c.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "NotificationBarInCard.ae33a90c.js",
+    "imports": [
+      "_colors.39339193.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_PillTag.196d1a00.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "PillTag.196d1a00.js",
+    "imports": [
+      "_colors.39339193.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_SectionFullScreen.964b553e.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "SectionFullScreen.964b553e.js",
+    "imports": [
+      "_style.e2758bbc.js",
+      "_colors.39339193.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_SectionMain.315830e4.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "SectionMain.315830e4.js",
+    "imports": [
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseButton.24471864.js",
+      "_swiper-vue.ec305aca.js",
       "_config.edcd5bec.js"
     ]
   },
@@ -122,12 +188,21 @@ const client_manifest = {
     "module": true,
     "file": "__vite-browser-external.7d645feb.js"
   },
-  "_colors.7637652d.js": {
+  "_colors.39339193.js": {
     "resourceType": "script",
     "module": true,
-    "file": "colors.7637652d.js",
+    "file": "colors.39339193.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_components.8c6e9177.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "components.8c6e9177.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ]
   },
   "_config.edcd5bec.js": {
@@ -135,35 +210,78 @@ const client_manifest = {
     "module": true,
     "file": "config.edcd5bec.js"
   },
-  "_main.ad903eef.js": {
+  "_logo.0c371e23.js": {
     "resourceType": "script",
     "module": true,
-    "file": "main.ad903eef.js",
+    "assets": [
+      "logo.5d61848a.png"
+    ],
+    "file": "logo.0c371e23.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_mdi.70a351a6.js": {
-    "resourceType": "script",
-    "module": true,
-    "file": "mdi.70a351a6.js"
+  "logo.5d61848a.png": {
+    "file": "logo.5d61848a.png",
+    "resourceType": "image",
+    "mimeType": "image/png"
   },
-  "_nuxt-link.7185a162.js": {
+  "_main.a962d244.js": {
     "resourceType": "script",
     "module": true,
-    "file": "nuxt-link.7185a162.js",
+    "file": "main.a962d244.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
   },
-  "_style.7f89d4ff.js": {
+  "_mdi.9d9f33c0.js": {
     "resourceType": "script",
     "module": true,
-    "file": "style.7f89d4ff.js",
+    "file": "mdi.9d9f33c0.js"
+  },
+  "_nuxt-link.89c2be35.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "nuxt-link.89c2be35.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
+    ]
+  },
+  "_silogo.b52ea66d.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "silogo.b52ea66d.js",
+    "imports": [
+      "node_modules/nuxt/dist/app/entry.js"
+    ]
+  },
+  "_style.e2758bbc.js": {
+    "resourceType": "script",
+    "module": true,
+    "file": "style.e2758bbc.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
       "_config.edcd5bec.js"
     ]
+  },
+  "_swiper-vue.ec305aca.js": {
+    "resourceType": "script",
+    "module": true,
+    "css": [
+      "swiper-vue.a54bf0a8.css"
+    ],
+    "file": "swiper-vue.ec305aca.js"
+  },
+  "swiper-vue.a54bf0a8.css": {
+    "file": "swiper-vue.a54bf0a8.css",
+    "resourceType": "style"
+  },
+  "assets/image/banner.jpg": {
+    "resourceType": "image",
+    "mimeType": "image/jpeg",
+    "file": "banner.7d05924c.jpg",
+    "src": "assets/image/banner.jpg"
   },
   "assets/image/logo.png": {
     "resourceType": "image",
@@ -174,34 +292,29 @@ const client_manifest = {
   "layouts/authenticated.vue": {
     "resourceType": "script",
     "module": true,
-    "assets": [
-      "logo.5d61848a.png"
-    ],
-    "file": "authenticated.def91b96.js",
+    "file": "authenticated.71a06aea.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_main.ad903eef.js",
-      "_style.7f89d4ff.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_main.a962d244.js",
+      "_style.e2758bbc.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_BaseDivider.3b35fdc1.js",
-      "_BaseLevel.99ced603.js"
+      "_BaseDivider.438dddb9.js",
+      "_logo.0c371e23.js",
+      "_BaseLevel.8020a8fa.js"
     ],
     "isDynamicEntry": true,
     "src": "layouts/authenticated.vue"
   },
-  "logo.5d61848a.png": {
-    "file": "logo.5d61848a.png",
-    "resourceType": "image",
-    "mimeType": "image/png"
-  },
   "layouts/default.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "default.738166a2.js",
+    "file": "default.69772eb9.js",
     "imports": [
-      "_style.7f89d4ff.js",
+      "_style.e2758bbc.js",
+      "_swiper-vue.ec305aca.js",
       "node_modules/nuxt/dist/app/entry.js",
       "_config.edcd5bec.js"
     ],
@@ -211,9 +324,10 @@ const client_manifest = {
   "middleware/auth.ts": {
     "resourceType": "script",
     "module": true,
-    "file": "auth.4121a9d1.js",
+    "file": "auth.dbeefa3d.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "middleware/auth.ts"
@@ -227,10 +341,11 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.31bbfc83.js",
+    "file": "error-404.f948ff91.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "_nuxt-link.89c2be35.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue"
@@ -248,9 +363,10 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.f946f2fe.js",
+    "file": "error-500.2ffa7003.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
@@ -262,10 +378,11 @@ const client_manifest = {
   "node_modules/@supabase/node-fetch/lib/index.mjs": {
     "resourceType": "script",
     "module": true,
-    "file": "index.c52fe66b.js",
+    "file": "index.e5fb8223.js",
     "imports": [
       "___vite-browser-external.7d645feb.js",
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "node_modules/@supabase/node-fetch/lib/index.mjs"
@@ -291,7 +408,10 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.8c7ce858.js",
+    "file": "entry.a255c9e8.js",
+    "imports": [
+      "_swiper-vue.ec305aca.js"
+    ],
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
@@ -303,40 +423,57 @@ const client_manifest = {
   "pages/App.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "App.f412fb44.js",
+    "file": "App.3c1c2de0.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_style.7f89d4ff.js",
-      "_config.edcd5bec.js"
+      "_style.e2758bbc.js",
+      "_config.edcd5bec.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/App.vue"
   },
+  "pages/activity.css": {
+    "resourceType": "style",
+    "file": "activity.53802f51.css",
+    "src": "pages/activity.css"
+  },
   "pages/activity.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "activity.8f8d2a9c.js",
+    "css": [],
+    "file": "activity.fbd9cc8c.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_MyNavbar.865605e5.js",
+      "_nuxt-link.89c2be35.js",
+      "_Footer.eb85db64.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_silogo.b52ea66d.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/activity.vue"
   },
+  "activity.53802f51.css": {
+    "file": "activity.53802f51.css",
+    "resourceType": "style"
+  },
   "pages/admin/activity/[id]/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.553bbe84.js",
+    "file": "index.815c76b9.js",
     "imports": [
-      "_CardBox.6b3f7427.js",
-      "_FotoActivity.c7998302.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
+      "_CardBox.f009d675.js",
+      "_FotoActivity.7bcea822.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
       "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
       "_BlobServiceClient.faa98db4.js",
       "___vite-browser-external.7d645feb.js",
-      "_main.ad903eef.js",
-      "_colors.7637652d.js"
+      "_main.a962d244.js",
+      "_colors.39339193.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/activity/[id]/index.vue"
@@ -344,16 +481,17 @@ const client_manifest = {
   "pages/admin/activity/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.4b8afad4.js",
+    "file": "index.9a7ac7ff.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "_SectionMain.d4578193.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_mdi.9d9f33c0.js",
+      "_swiper-vue.ec305aca.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -362,19 +500,20 @@ const client_manifest = {
   "pages/admin/activity/tambah.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "tambah.876529dc.js",
+    "file": "tambah.e2499bad.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_FormControl.06cdc0db.js",
-      "_FotoActivity.c7998302.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_SectionMain.315830e4.js",
+      "_FormControl.5d398e67.js",
+      "_FotoActivity.7bcea822.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_main.ad903eef.js",
+      "_main.a962d244.js",
       "_BlobServiceClient.faa98db4.js",
       "___vite-browser-external.7d645feb.js"
     ],
@@ -384,17 +523,18 @@ const client_manifest = {
   "pages/admin/event/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.23d0fcb6.js",
+    "file": "index.9f4ce81a.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "_SectionMain.d4578193.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
-      "_BaseLevel.99ced603.js",
-      "_BaseButton.214b4472.js",
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseLevel.8020a8fa.js",
+      "_BaseButton.24471864.js",
+      "_swiper-vue.ec305aca.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -403,9 +543,10 @@ const client_manifest = {
   "pages/admin/event/tambah.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "tambah.df2d3062.js",
+    "file": "tambah.9387d5ea.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/event/tambah.vue"
@@ -413,16 +554,17 @@ const client_manifest = {
   "pages/admin/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.35415e02.js",
+    "file": "index.e05edd21.js",
     "imports": [
-      "_mdi.70a351a6.js",
-      "_CardBox.6b3f7427.js",
+      "_mdi.9d9f33c0.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_colors.7637652d.js",
-      "_BaseLevel.99ced603.js",
-      "_PillTag.fc535c58.js",
-      "_BaseButton.214b4472.js",
-      "_SectionMain.d4578193.js",
+      "_swiper-vue.ec305aca.js",
+      "_colors.39339193.js",
+      "_BaseLevel.8020a8fa.js",
+      "_PillTag.196d1a00.js",
+      "_BaseButton.24471864.js",
+      "_SectionMain.315830e4.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -431,15 +573,17 @@ const client_manifest = {
   "pages/admin/login.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "login.da02399b.js",
+    "file": "login.e9142d7d.js",
     "imports": [
-      "_FormControl.06cdc0db.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
-      "_style.7f89d4ff.js",
-      "_colors.7637652d.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "_SectionFullScreen.964b553e.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_main.ad903eef.js",
+      "_swiper-vue.ec305aca.js",
+      "_main.a962d244.js",
+      "_colors.39339193.js",
+      "_style.e2758bbc.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -448,26 +592,27 @@ const client_manifest = {
   "pages/admin/mahasiswa/[id]/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.667c6ac8.js",
+    "file": "index.3c26ccf2.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_NotificationBarInCard.5405e40b.js",
-      "_MahasiswaCard.87fa8894.js",
-      "_FotoMahasiswa.f6c907e3.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
-      "_BaseDivider.3b35fdc1.js",
+      "_SectionMain.315830e4.js",
+      "_NotificationBarInCard.ae33a90c.js",
+      "_MahasiswaCard.ed40aa0d.js",
+      "_FotoMahasiswa.9bf4a0cc.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "_BaseDivider.438dddb9.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_PillTag.fc535c58.js",
-      "_BaseLevel.99ced603.js",
+      "_PillTag.196d1a00.js",
+      "_BaseLevel.8020a8fa.js",
       "_BlobServiceClient.faa98db4.js",
       "___vite-browser-external.7d645feb.js",
-      "_main.ad903eef.js"
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/mahasiswa/[id]/index.vue"
@@ -475,9 +620,10 @@ const client_manifest = {
   "pages/admin/mahasiswa/[id]/kas.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "kas.77a8565c.js",
+    "file": "kas.dcd510f8.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/mahasiswa/[id]/kas.vue"
@@ -485,15 +631,16 @@ const client_manifest = {
   "pages/admin/mahasiswa/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.415a1b44.js",
+    "file": "index.ba78c4e4.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "_SectionMain.d4578193.js",
-      "_CardBox.6b3f7427.js",
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
-      "_BaseButton.214b4472.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseButton.24471864.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -502,19 +649,20 @@ const client_manifest = {
   "pages/admin/mahasiswa/tambah.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "tambah.afbe50bf.js",
+    "file": "tambah.d2c15a6d.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_SectionMain.d4578193.js",
-      "_CardBox.6b3f7427.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_FotoMahasiswa.f6c907e3.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_SectionMain.315830e4.js",
+      "_CardBox.f009d675.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_FotoMahasiswa.9bf4a0cc.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_main.ad903eef.js",
+      "_main.a962d244.js",
       "_BlobServiceClient.faa98db4.js",
       "___vite-browser-external.7d645feb.js"
     ],
@@ -524,39 +672,59 @@ const client_manifest = {
   "pages/admin/masukan/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.fd448c42.js",
+    "file": "index.01f3d0ec.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_nuxt-link.7185a162.js",
-      "_CardBox.6b3f7427.js",
+      "_SectionMain.315830e4.js",
+      "_nuxt-link.89c2be35.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
-      "_BaseButton.214b4472.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseButton.24471864.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/masukan/index.vue"
   },
+  "pages/admin/menfest/index.vue": {
+    "resourceType": "script",
+    "module": true,
+    "file": "index.781b6a1d.js",
+    "imports": [
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_CardBox.f009d675.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseButton.24471864.js",
+      "_config.edcd5bec.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/admin/menfest/index.vue"
+  },
   "pages/admin/payment/[room]/[id]/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.5ca62bbb.js",
+    "file": "index.b814de5d.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_BaseDivider.3b35fdc1.js",
-      "_MahasiswaCard.87fa8894.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_SectionMain.315830e4.js",
+      "_BaseDivider.438dddb9.js",
+      "_MahasiswaCard.ed40aa0d.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_PillTag.fc535c58.js",
-      "_BaseLevel.99ced603.js",
-      "_main.ad903eef.js"
+      "_PillTag.196d1a00.js",
+      "_BaseLevel.8020a8fa.js",
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/payment/[room]/[id]/index.vue"
@@ -564,16 +732,17 @@ const client_manifest = {
   "pages/admin/payment/[room]/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.bf8200d0.js",
+    "file": "index.80498d93.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "_SectionMain.d4578193.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -582,22 +751,23 @@ const client_manifest = {
   "pages/admin/payment/[room]/setting.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "setting.c65c4ba4.js",
+    "file": "setting.a9f1189e.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_MahasiswaCard.87fa8894.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
-      "_BaseDivider.3b35fdc1.js",
+      "_SectionMain.315830e4.js",
+      "_MahasiswaCard.ed40aa0d.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "_BaseDivider.438dddb9.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_PillTag.fc535c58.js",
-      "_BaseLevel.99ced603.js",
-      "_main.ad903eef.js"
+      "_PillTag.196d1a00.js",
+      "_BaseLevel.8020a8fa.js",
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/payment/[room]/setting.vue"
@@ -611,19 +781,20 @@ const client_manifest = {
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "tambah.af29d4ba.js",
+    "file": "tambah.a587d6f4.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_NotificationBarInCard.5405e40b.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
-      "_colors.7637652d.js",
+      "_SectionMain.315830e4.js",
+      "_NotificationBarInCard.ae33a90c.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "_colors.39339193.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
       "_config.edcd5bec.js",
-      "_main.ad903eef.js"
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/payment/[room]/tambah.vue"
@@ -635,14 +806,15 @@ const client_manifest = {
   "pages/admin/payment/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.45450590.js",
+    "file": "index.cf59641f.js",
     "imports": [
-      "_nuxt-link.7185a162.js",
-      "_SectionMain.d4578193.js",
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
-      "_BaseButton.214b4472.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
+      "_BaseButton.24471864.js",
       "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
@@ -651,19 +823,20 @@ const client_manifest = {
   "pages/admin/payment/tambah.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "tambah.4f43bb03.js",
+    "file": "tambah.afa4bf3d.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_NotificationBarInCard.5405e40b.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_SectionMain.315830e4.js",
+      "_NotificationBarInCard.ae33a90c.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_main.ad903eef.js"
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/payment/tambah.vue"
@@ -671,68 +844,148 @@ const client_manifest = {
   "pages/admin/user/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.aa5e1846.js",
+    "file": "index.59e7e0d1.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_nuxt-link.89c2be35.js",
+      "_SectionMain.315830e4.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_mdi.9d9f33c0.js",
+      "_swiper-vue.ec305aca.js",
+      "_colors.39339193.js",
+      "_config.edcd5bec.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/user/index.vue"
   },
+  "pages/admin/user/register.vue": {
+    "resourceType": "script",
+    "module": true,
+    "file": "register.8e8ecfe2.js",
+    "imports": [
+      "_FormControl.5d398e67.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
+      "_SectionFullScreen.964b553e.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_main.a962d244.js",
+      "_colors.39339193.js",
+      "_style.e2758bbc.js",
+      "_config.edcd5bec.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/admin/user/register.vue"
+  },
   "pages/admin/user/tambah.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "tambah.208fe0b2.js",
+    "file": "tambah.7587f2fb.js",
     "imports": [
-      "_SectionMain.d4578193.js",
-      "_FormControl.06cdc0db.js",
-      "_BaseButton.214b4472.js",
-      "_BaseButtons.1a714a7d.js",
-      "_CardBox.6b3f7427.js",
+      "_SectionMain.315830e4.js",
+      "_FormControl.5d398e67.js",
+      "_BaseButton.24471864.js",
+      "_BaseButtons.46bb6fef.js",
+      "_CardBox.f009d675.js",
       "node_modules/nuxt/dist/app/entry.js",
-      "_mdi.70a351a6.js",
-      "_colors.7637652d.js",
+      "_swiper-vue.ec305aca.js",
+      "_mdi.9d9f33c0.js",
+      "_colors.39339193.js",
       "_config.edcd5bec.js",
-      "_main.ad903eef.js"
+      "_main.a962d244.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/admin/user/tambah.vue"
   },
+  "pages/event.css": {
+    "resourceType": "style",
+    "file": "event.c7c556f6.css",
+    "src": "pages/event.css"
+  },
   "pages/event.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "event.1a8f4a2d.js",
+    "css": [],
+    "file": "event.159a5cb3.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_components.8c6e9177.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_silogo.b52ea66d.js",
+      "_swiper-vue.ec305aca.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/event.vue"
   },
+  "event.c7c556f6.css": {
+    "file": "event.c7c556f6.css",
+    "resourceType": "style"
+  },
+  "pages/index.css": {
+    "resourceType": "style",
+    "file": "index.fc3daa31.css",
+    "src": "pages/index.css"
+  },
   "pages/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.dce59d4d.js",
+    "assets": [
+      "banner.7d05924c.jpg"
+    ],
+    "css": [],
+    "file": "index.f1011c18.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_components.8c6e9177.js",
+      "_MyNavbar.865605e5.js",
+      "_nuxt-link.89c2be35.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_Mahasiswa.5922a0b5.js",
+      "_Contact.074b2c52.js",
+      "_Footer.eb85db64.js",
+      "_silogo.b52ea66d.js",
+      "_logo.0c371e23.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/index.vue"
   },
-  "pages/mahasiswa/[id].vue": {
+  "index.fc3daa31.css": {
+    "file": "index.fc3daa31.css",
+    "resourceType": "style"
+  },
+  "banner.7d05924c.jpg": {
+    "file": "banner.7d05924c.jpg",
+    "resourceType": "image",
+    "mimeType": "image/jpeg"
+  },
+  "pages/mahasiswa/[id]/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "_id_.b0941e33.js",
+    "file": "index.f8bb6e7b.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_MyNavbar.865605e5.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_nuxt-link.89c2be35.js",
+      "_silogo.b52ea66d.js"
     ],
     "isDynamicEntry": true,
-    "src": "pages/mahasiswa/[id].vue"
+    "src": "pages/mahasiswa/[id]/index.vue"
   },
   "pages/mahasiswa/index.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "index.bbad9e8f.js",
+    "file": "index.ae3d747d.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_MyNavbar.865605e5.js",
+      "_Mahasiswa.5922a0b5.js",
+      "_Footer.eb85db64.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_nuxt-link.89c2be35.js",
+      "_silogo.b52ea66d.js",
+      "_logo.0c371e23.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/mahasiswa/index.vue"
@@ -740,12 +993,64 @@ const client_manifest = {
   "pages/masukan.vue": {
     "resourceType": "script",
     "module": true,
-    "file": "masukan.6107f48b.js",
+    "file": "masukan.88753c22.js",
     "imports": [
-      "node_modules/nuxt/dist/app/entry.js"
+      "_components.8c6e9177.js",
+      "_MyNavbar.865605e5.js",
+      "_Contact.074b2c52.js",
+      "_Footer.eb85db64.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_nuxt-link.89c2be35.js",
+      "_silogo.b52ea66d.js"
     ],
     "isDynamicEntry": true,
     "src": "pages/masukan.vue"
+  },
+  "pages/sifest/index.css": {
+    "resourceType": "style",
+    "file": "index.03c8836e.css",
+    "src": "pages/sifest/index.css"
+  },
+  "pages/sifest/index.vue": {
+    "resourceType": "script",
+    "module": true,
+    "css": [],
+    "file": "index.6213c016.js",
+    "imports": [
+      "_MyNavbar.865605e5.js",
+      "_nuxt-link.89c2be35.js",
+      "_Footer.eb85db64.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_silogo.b52ea66d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/sifest/index.vue"
+  },
+  "index.03c8836e.css": {
+    "file": "index.03c8836e.css",
+    "resourceType": "style"
+  },
+  "pages/sifest/tambah.vue": {
+    "resourceType": "script",
+    "module": true,
+    "file": "tambah.adeea1e8.js",
+    "imports": [
+      "_MyNavbar.865605e5.js",
+      "_Footer.eb85db64.js",
+      "node_modules/nuxt/dist/app/entry.js",
+      "_swiper-vue.ec305aca.js",
+      "_nuxt-link.89c2be35.js",
+      "_silogo.b52ea66d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "pages/sifest/tambah.vue"
+  },
+  "swiper-vue.css": {
+    "resourceType": "style",
+    "file": "swiper-vue.a54bf0a8.css",
+    "src": "swiper-vue.css"
   }
 };
 

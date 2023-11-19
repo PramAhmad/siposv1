@@ -425,6 +425,9 @@ const createError = (err) => {
   _err.__nuxt_error = true;
   return _err;
 };
+const __nuxt_page_meta$a = {
+  middleware: "auth"
+};
 const __nuxt_page_meta$9 = {
   middleware: "auth"
 };
@@ -462,7 +465,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/App-fc6db812.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/App-8b134005.mjs').then((m) => m.default || m)
   },
   {
     name: "activity",
@@ -470,7 +473,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/activity-359a9858.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/activity-c554e658.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-activity-id",
@@ -478,23 +481,23 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-9869cf69.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-f6eef7ea.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.name) ?? "admin-activity",
-    path: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.path) ?? "/admin/activity",
+    name: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.name) ?? "admin-activity",
+    path: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.path) ?? "/admin/activity",
+    meta: __nuxt_page_meta$a || {},
+    alias: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.alias) || [],
+    redirect: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.redirect) || void 0,
+    component: () => import('./_nuxt/index-fb372077.mjs').then((m) => m.default || m)
+  },
+  {
+    name: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.name) ?? "admin-activity-tambah",
+    path: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.path) ?? "/admin/activity/tambah",
     meta: __nuxt_page_meta$9 || {},
     alias: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.alias) || [],
     redirect: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.redirect) || void 0,
-    component: () => import('./_nuxt/index-123b420f.mjs').then((m) => m.default || m)
-  },
-  {
-    name: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.name) ?? "admin-activity-tambah",
-    path: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.path) ?? "/admin/activity/tambah",
-    meta: __nuxt_page_meta$8 || {},
-    alias: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.alias) || [],
-    redirect: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.redirect) || void 0,
-    component: () => import('./_nuxt/tambah-7fbc3a41.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/tambah-5009f492.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-event",
@@ -502,7 +505,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-e5ad6834.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-be8b0561.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-event-tambah",
@@ -513,12 +516,12 @@ const _routes = [
     component: () => import('./_nuxt/tambah-d7a0dd04.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.name) ?? "admin",
-    path: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.path) ?? "/admin",
-    meta: __nuxt_page_meta$7 || {},
-    alias: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.alias) || [],
-    redirect: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.redirect) || void 0,
-    component: () => import('./_nuxt/index-c73f5bee.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.name) ?? "admin",
+    path: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.path) ?? "/admin",
+    meta: __nuxt_page_meta$8 || {},
+    alias: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.alias) || [],
+    redirect: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.redirect) || void 0,
+    component: () => import('./_nuxt/index-70577b58.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-login",
@@ -526,7 +529,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/login-3f72b904.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/login-2f6b3288.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-mahasiswa-id",
@@ -534,7 +537,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-c4cfff0c.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-717522e1.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-mahasiswa-id-kas",
@@ -545,12 +548,12 @@ const _routes = [
     component: () => import('./_nuxt/kas-43d1e6a8.mjs').then((m) => m.default || m)
   },
   {
-    name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "admin-mahasiswa",
-    path: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.path) ?? "/admin/mahasiswa",
-    meta: __nuxt_page_meta$6 || {},
-    alias: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.alias) || [],
-    redirect: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.redirect) || void 0,
-    component: () => import('./_nuxt/index-c455ff5d.mjs').then((m) => m.default || m)
+    name: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.name) ?? "admin-mahasiswa",
+    path: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.path) ?? "/admin/mahasiswa",
+    meta: __nuxt_page_meta$7 || {},
+    alias: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.alias) || [],
+    redirect: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.redirect) || void 0,
+    component: () => import('./_nuxt/index-99ed3a22.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-mahasiswa-tambah",
@@ -558,7 +561,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/tambah-608cdd54.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/tambah-6cae5175.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-masukan",
@@ -566,7 +569,15 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-1bceca87.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-70402ffa.mjs').then((m) => m.default || m)
+  },
+  {
+    name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "admin-menfest",
+    path: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.path) ?? "/admin/menfest",
+    meta: __nuxt_page_meta$6 || {},
+    alias: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.alias) || [],
+    redirect: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.redirect) || void 0,
+    component: () => import('./_nuxt/index-ce609b79.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "admin-payment-room-id",
@@ -574,7 +585,7 @@ const _routes = [
     meta: __nuxt_page_meta$5 || {},
     alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
     redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
-    component: () => import('./_nuxt/index-653472a8.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-76155156.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "admin-payment-room",
@@ -582,7 +593,7 @@ const _routes = [
     meta: __nuxt_page_meta$4 || {},
     alias: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.alias) || [],
     redirect: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.redirect) || void 0,
-    component: () => import('./_nuxt/index-8dc7eb2f.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-501f5d28.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.name) ?? "admin-payment-room-setting",
@@ -590,7 +601,7 @@ const _routes = [
     meta: __nuxt_page_meta$3 || {},
     alias: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.alias) || [],
     redirect: (__nuxt_page_meta$3 == null ? void 0 : __nuxt_page_meta$3.redirect) || void 0,
-    component: () => import('./_nuxt/setting-04de14d6.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/setting-fb648b85.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.name) ?? "admin-payment-room-tambah",
@@ -598,7 +609,7 @@ const _routes = [
     meta: __nuxt_page_meta$2 || {},
     alias: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.alias) || [],
     redirect: (__nuxt_page_meta$2 == null ? void 0 : __nuxt_page_meta$2.redirect) || void 0,
-    component: () => import('./_nuxt/tambah-a9d80afa.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/tambah-46da8f38.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.name) ?? "admin-payment",
@@ -606,7 +617,7 @@ const _routes = [
     meta: __nuxt_page_meta$1 || {},
     alias: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.alias) || [],
     redirect: (__nuxt_page_meta$1 == null ? void 0 : __nuxt_page_meta$1.redirect) || void 0,
-    component: () => import('./_nuxt/index-f77a504d.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-3b917683.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.name) ?? "admin-payment-tambah",
@@ -614,7 +625,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./_nuxt/tambah-a0f395ba.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/tambah-eb3038a2.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-user",
@@ -622,7 +633,15 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-dbb39f31.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-db8711b1.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "admin-user-register",
+    path: "/admin/user/register",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/register-d016b255.mjs').then((m) => m.default || m)
   },
   {
     name: "admin-user-tambah",
@@ -630,7 +649,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/tambah-898d39f9.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/tambah-3908c24b.mjs').then((m) => m.default || m)
   },
   {
     name: "event",
@@ -638,7 +657,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/event-52edf1fc.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/event-ff682b27.mjs').then((m) => m.default || m)
   },
   {
     name: "index",
@@ -646,7 +665,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-b8ebe3a6.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-e5f7bbad.mjs').then((m) => m.default || m)
   },
   {
     name: "mahasiswa-id",
@@ -654,7 +673,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/_id_-2543cec8.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-622526e8.mjs').then((m) => m.default || m)
   },
   {
     name: "mahasiswa",
@@ -662,7 +681,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/index-4e1dd351.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/index-7963933a.mjs').then((m) => m.default || m)
   },
   {
     name: "masukan",
@@ -670,7 +689,23 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./_nuxt/masukan-672dfbfe.mjs').then((m) => m.default || m)
+    component: () => import('./_nuxt/masukan-de02ce06.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "sifest",
+    path: "/sifest",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/index-74fffec2.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "sifest-tambah",
+    path: "/sifest/tambah",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./_nuxt/tambah-0fa40e9e.mjs').then((m) => m.default || m)
   }
 ];
 const appHead = { "meta": [{ "name": "viewport", "content": "width=device-width, initial-scale=1" }, { "charset": "utf-8" }], "link": [], "style": [], "script": [], "noscript": [] };
@@ -752,7 +787,7 @@ const globalMiddleware = [
   validate
 ];
 const namedMiddleware = {
-  auth: () => import('./_nuxt/auth-f6193e59.mjs')
+  auth: () => import('./_nuxt/auth-c52f68ca.mjs')
 };
 const plugin$1 = /* @__PURE__ */ defineNuxtPlugin({
   name: "nuxt:router",
@@ -1500,8 +1535,8 @@ const _wrapIf = (component, props, slots) => {
   } };
 };
 const layouts = {
-  authenticated: () => import('./_nuxt/authenticated-71bddcf8.mjs').then((m) => m.default || m),
-  default: () => import('./_nuxt/default-ad61db35.mjs').then((m) => m.default || m)
+  authenticated: () => import('./_nuxt/authenticated-febe0a9a.mjs').then((m) => m.default || m),
+  default: () => import('./_nuxt/default-ad23f1d1.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent({
   name: "LayoutLoader",
@@ -1515,7 +1550,7 @@ const LayoutLoader = /* @__PURE__ */ defineComponent({
     return () => h(LayoutComponent, props.layoutProps, context.slots);
   }
 });
-const __nuxt_component_0 = /* @__PURE__ */ defineComponent({
+const __nuxt_component_2 = /* @__PURE__ */ defineComponent({
   name: "NuxtLayout",
   inheritAttrs: false,
   props: {
@@ -1737,7 +1772,7 @@ const _export_sfc = (sfc, props) => {
 };
 const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
-  const _component_NuxtLayout = __nuxt_component_0;
+  const _component_NuxtLayout = __nuxt_component_2;
   const _component_NuxtPage = __nuxt_component_1;
   _push(ssrRenderComponent(_component_NuxtLayout, _attrs, {
     default: withCtx((_, _push2, _parent2, _scopeId) => {
@@ -1780,7 +1815,7 @@ const _sfc_main$1 = {
     const statusMessage = _error.statusMessage ?? (is404 ? "Page Not Found" : "Internal Server Error");
     const description = _error.message || _error.toString();
     const stack = void 0;
-    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-70f8237e.mjs').then((r) => r.default || r));
+    const _Error404 = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-404-66be8f76.mjs').then((r) => r.default || r));
     const _Error = /* @__PURE__ */ defineAsyncComponent(() => import('./_nuxt/error-500-e8e19738.mjs').then((r) => r.default || r));
     const ErrorTemplate = is404 ? _Error404 : _Error;
     return (_ctx, _push, _parent, _attrs) => {
@@ -1866,5 +1901,5 @@ let entry;
 }
 const entry$1 = (ctx) => entry(ctx);
 
-export { _export_sfc as _, __nuxt_component_0 as a, __nuxt_component_1 as b, createError as c, useSupabaseClient as d, entry$1 as default, useRoute as e, useSupabaseUser as f, useRouter as g, defineStore as h, defineNuxtRouteMiddleware as i, navigateTo as n, useHead as u };
+export { _export_sfc as _, __nuxt_component_2 as a, __nuxt_component_1 as b, createError as c, useSupabaseClient as d, entry$1 as default, useRoute as e, useRouter as f, defineStore as g, useSupabaseUser as h, defineNuxtRouteMiddleware as i, navigateTo as n, useHead as u };
 //# sourceMappingURL=server.mjs.map
