@@ -29,8 +29,15 @@
     <div class="md:max-w-[32%] ml-2 w-full bg-white border-4 border-slate-100 rounded-sm p-5 " v-for="data in datas" :key="data.id">
       <div class="flex justify-end">
         <div class="bg-[#63B4FF] text-white rounded-md px-2 py-1" >
-          <p class="text-sm">From <span class="font-bold">{{ data.from }}</span></p>
-        </div>
+          
+          <p class="text-sm">
+            From
+            <span class="font-bold">
+              <template v-if="data.from === null || data.from === undefined || data.from === ''">-</template>
+              <template v-else>{{ data.from }}</template>
+            </span>
+        </p>  
+</div>
       </div>
       <!-- card from -->
       <div class="w-full py-2 rounded-md bg-slate-100 mt-3 p-3">
