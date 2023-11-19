@@ -1,26 +1,32 @@
 <template>
     <div>
     <MyNavbar/>
-    <div class="container pt-28 min-h-screen ">
+    <div class="container md:pt-28 pt-20 min-h-screen ">
       <p class="text-2xl md:text-3xl text-center text-[#63B4FF] ">SiFess</p>
     <div
       class="bg-[#FFC700]  h-1 w-5/6 my-5 md:w-[568px] rounded-full m-auto mb-9"
     ></div> 
-    <NuxtLink to="/sifest/tambah" class="py-3 px-6 inline-block bg-[#63B4FF] text-white  rounded-md font-semibold  text-lg hover:bg-opacity-80 ">
-      <div class="inline-block align-middle mr-2">Kirim Sifess</div>
-  <div class="inline-block">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block align-middle">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-    </svg>
-  </div>
-</NuxtLink>
+    <div class="fixed bottom-10 right-10 z-50">
+        <NuxtLink to="/sifest/tambah" class="block bg-[#63B4FF] text-white rounded-full p-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-8 h-8"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+          </svg>
+        </NuxtLink>
+      </div>
 
 
-    <div class="mt-16">
+
+    <div class="md:mt-16 mt-5">
     
-
-          <div class="flex flex-wrap justify-start  w-full  gap-y-10 mb-10" >
-    <div class="md:max-w-[33%] w-full bg-white border-4 border-slate-100 rounded-sm p-5 " v-for="data in datas" :key="data.id">
+      <div @scroll="handleScroll" class="overflow-y-auto max-h-screen">
+          <div class="flex flex-wrap justify-start   w-full  gap-y-10 mb-10" >
+    <div class="md:max-w-[32%] ml-2 w-full bg-white border-4 border-slate-100 rounded-sm p-5 " v-for="data in datas" :key="data.id">
       <div class="flex justify-end">
         <div class="bg-[#63B4FF] text-white rounded-md px-2 py-1" >
           <p class="text-sm">From <span class="font-bold">{{ data.from }}</span></p>
@@ -45,7 +51,7 @@
     </div>
  
         </div>
-        
+        </div>
 
 
 
@@ -133,7 +139,7 @@
     </div>
 </template>
 <script setup>
-import ko from 'date-fns/esm/locale/ko';
+
 
 const supabase = useSupabaseClient()
 const datas = ref([])
@@ -141,7 +147,35 @@ const coment = ref([])
 const komentar = ref('')
 const id_sifest = ref(0)
 const loading = ref(false)
+const displayedData = ref([]);
+
 let showModal = ref(false);
+
+const handleScroll = async (event) => {
+    const bottomOfWindow =
+      event.target.scrollHeight - event.target.scrollTop ===
+      event.target.clientHeight;
+
+    if (bottomOfWindow && !loading.value) {
+      loading.value = true;
+
+      // Simulate fetching more data (Replace with your actual API call)
+      await fetchMoreData();
+    }
+  };
+
+  const fetchMoreData = async () => {
+    setTimeout(() => {
+      // Simulated logic: Add more messages to displayedData
+      const moreData = datas.value.slice(displayedData.value.length, displayedData.value.length + 3);
+      displayedData.value = [...displayedData.value, ...moreData];
+
+      loading.value = false;
+    }, 1000);
+  };
+
+
+
 
 const getSifest = async ()=>{
 
@@ -153,6 +187,7 @@ const getSifest = async ()=>{
     }
     else{
         datas.value = data
+        displayedData.value = datas.value.slice(0, 3);
     }
 }
 
