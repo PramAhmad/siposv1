@@ -1,16 +1,7 @@
 import {
   mdiAccountCircle,
   mdiMonitor,
-  mdiGithub,
-  mdiLock,
-  mdiAlertCircle,
-  mdiSquareEditOutline,
-  mdiTable,
-  mdiViewList,
-  mdiTelevisionGuide,
-  mdiResponsive,
-  mdiPalette,
-  mdiReact,
+  mdiAccount,
   mdiHandCoin,
   mdiHistory,
   mdiEvernote,
@@ -20,11 +11,15 @@ import {
   mdiMailbox,
 } from "@mdi/js";
 
-export default [
+export default
+ [
+  
+ 
   {
     to: "/admin",
     icon: mdiMonitor,
     label: "Dashboard",
+
   },
   {
     label: "Mahasiwa",
@@ -51,15 +46,16 @@ export default [
     icon: mdiHistory,
   },
   {
-    to: "/admin/event",
-  label: "Event",
-    icon: mdiAlarm,
-  },
-  {
     to: "/admin/masukan",
     label: "Masukan",
     icon: mdiMailbox,
   },
+  {
+    to: "/admin/user",
+  label: "User",
+    icon: mdiAccount,
+  },
+ 
  
   
 

@@ -1,12 +1,15 @@
-<template lang="">
-    <div>
-        
+<template >
+    <div class="">
+        <MyNavbar/>
+        <div class="mt-20">
+
+            <PageMahasiswa/>
+        </div>
+        <Footer/>
     </div>
 </template>
 <script>
-export default {
-    
-}
+
 </script>
 <style lang="">
     

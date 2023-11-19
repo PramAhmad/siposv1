@@ -20,6 +20,11 @@ module.exports = {
       gray: "gray",
     },
     extend: {
+      container :{
+        center: true,
+        padding: '1rem',
+      },
+    
       zIndex: {
         "-1": "-1",
       },

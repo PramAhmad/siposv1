@@ -1,23 +1,22 @@
 <script setup>
-
 const form = reactive({
   login: "",
   pass: "",
   
 });
+const supabase =  useSupabaseClient()
 const loading = ref(false)
-const supabase = useSupabaseClient();
 const submit = async () => {
-  const {data,error} = await supabase.auth.signInWithPassword({
-    email: form.login,
-    password: form.pass,
-  });
-  loading.value = true
-  if(error){
-    alert(error.message)
-  }
-
-  navigateTo("/admin")
+    loading.value = true
+    const {data,error} = await 
+    supabase.auth.signInWithPassword({
+        email: form.login,
+        password: form.pass,
+    })
+    if(error){
+        console.log(error)
+    }
+    navigateTo('/admin')
 };
 </script>
 
