@@ -25,7 +25,7 @@ onMounted(()=>{
      <PageHero/>
 
       <!-- Mahasiswa section -->
-      <section class="py-6 lg:py-12 pt-28 pb-20 bg-slate-50 min-h-screen">
+      <section class="bg-gradient-to-b from-slate-50 to-slate-200 py-6 lg:py-12 pt-28 pb-20 min-h-screen">
    <PageMahasiswa/>
    <!-- <div class="flex justify-evenly w-screen lg:w-full container">
       <NuxtLink
