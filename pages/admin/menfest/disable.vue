@@ -12,7 +12,7 @@ const getSifest = async ()=>{
     .from('sifest')
     .select()
     .order('id', { ascending: true })
-    .eq('is_accept',1)
+    .eq('is_accept',2)
     sifest.value = data
     loading.value = true
     if (error) {
@@ -71,11 +71,11 @@ const selectAll = () => {
 };
 
 
-const bulkDisable = async()=>{
+const bulkAcive = async()=>{
   for (let i = 0; i < id.value.length; i++) {
     const { data, error } = await supabase
       .from('sifest')
-      .update({ is_accept: 2 })
+      .update({ is_accept: 1 })
       .match({ id: id.value[i] });
       console.log(id.value[i])
 
@@ -97,7 +97,7 @@ onMounted(()=>{
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" main  title="Sifest" >
         <!-- button accept -->
-        <button @click="bulkDisable" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Disable</button>
+        <button @click="bulkAcive" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Active</button>
   </SectionTitleLineWithButton>
       <!-- search button -->
       <div class="flex justify-start mt-2 mb-2">

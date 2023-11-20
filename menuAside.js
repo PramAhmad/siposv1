@@ -36,6 +36,25 @@ export default
     ],
   },
   {
+    label: "Sifess",
+    icon: mdiMail,
+    menu: [
+      {
+        to: "/admin/menfest",
+        label: "List Sifess",
+      },
+      {
+        to: "/admin/menfest/request",
+        label: "Request Sifess  ",
+      },
+      {
+        to: "/admin/menfest/disable",
+        label: "Disabled Sifess  ",
+   
+      }
+    ],
+  },
+  {
     to: "/admin/payment",
     label: "Pembayaran",
     icon: mdiHandCoin,

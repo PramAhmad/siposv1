@@ -2,17 +2,18 @@
 definePageMeta({
   middleware: 'auth'
 })
-const id = ref([])
+
 const sifest = ref([]);
 const loading = ref(false)
 const supabase = useSupabaseClient();
+const id = ref([])
 const getSifest = async ()=>{
   loading.value = false
     const { data, error } = await supabase
     .from('sifest')
     .select()
+    .eq('is_accept',0)
     .order('id', { ascending: true })
-    .eq('is_accept',1)
     sifest.value = data
     loading.value = true
     if (error) {
@@ -71,22 +72,24 @@ const selectAll = () => {
 };
 
 
-const bulkDisable = async()=>{
+  
+  const bulkPost = async () => {
   for (let i = 0; i < id.value.length; i++) {
     const { data, error } = await supabase
       .from('sifest')
-      .update({ is_accept: 2 })
+      .update({ is_accept: 1 })
       .match({ id: id.value[i] });
       console.log(id.value[i])
 
     if (error) {
       console.log(error);
     }
-    getSifest()
-  
+  }
+  getSifest(); // Ambil data kembali setelah melakukan update
 }
-}
+
 onMounted(()=>{
+
     getSifest()
 })
 
@@ -97,7 +100,7 @@ onMounted(()=>{
     <SectionMain>
       <SectionTitleLineWithButton :icon="mdiAccount" main  title="Sifest" >
         <!-- button accept -->
-        <button @click="bulkDisable" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Disable</button>
+        <button @click="bulkPost" class="rounded-full my-3 bg-slate-900 text-white font-semibold hover:bg-slate-950 py-2.5 px-3 md:text-lg text-md">Accept</button>
   </SectionTitleLineWithButton>
       <!-- search button -->
       <div class="flex justify-start mt-2 mb-2">
