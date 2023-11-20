@@ -1,4 +1,9 @@
 <script setup>
+import {
+
+  mdiHandCoin,
+  
+} from "@mdi/js";
 import { ref, computed } from "vue";
 import { RouterLink } from "vue-router";
 import { useStyleStore } from "@/stores/style.js";
@@ -14,6 +19,17 @@ const props = defineProps({
   },
   isDropdownList: Boolean,
 });
+const manualAsideMenu = [
+  
+    {
+    to: "/admin/payment",
+    label: "Pembayaran",
+    icon: mdiHandCoin,
+  },
+
+];
+
+
 
 const emit = defineEmits(["menu-click"]);
 
@@ -51,9 +67,9 @@ const user = useSupabaseUser()
   <li >
 
     <component
-      :is="item.to ? RouterLink : 'a'"
+      is="/admin/pembayaran"
       v-slot="vSlot"
-      :to="item.to ?? null"
+      to="/admin/pembayaran"
       :href="item.href ?? null"
       :target="item.target ?? null"
       class="flex cursor-pointer"
@@ -62,7 +78,7 @@ const user = useSupabaseUser()
     >
       <BaseIcon
         v-if="item.icon"
-        :path="item.icon"
+        path="mdiHandCoin"
         class="flex-none"
         :class="[vSlot && vSlot.isExactActive ? asideMenuItemActiveStyle : '']"
         w="w-16"
@@ -74,7 +90,7 @@ const user = useSupabaseUser()
           { 'pr-12': !hasDropdown },
           vSlot && vSlot.isExactActive ? asideMenuItemActiveStyle : '',
         ]"
-        >{{ item.label }}</span
+        >pembayaran</span
       >
       <BaseIcon
         v-if="hasDropdown"
