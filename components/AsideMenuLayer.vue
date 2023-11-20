@@ -73,7 +73,7 @@ const Logout = async()=>
         </button>
       </div>
       <div
-        :class="
+         :class="
           styleStore.darkMode
             ? 'aside-scrollbars-[slate]'
             : styleStore.asideScrollbarsStyle
@@ -81,6 +81,8 @@ const Logout = async()=>
         class="flex-1 overflow-y-auto overflow-x-hidden"
       >
         <AsideMenuList :menu="menu" @menu-click="menuClick" />
+        <!-- list admin -->
+        
       </div>
 
       <ul>

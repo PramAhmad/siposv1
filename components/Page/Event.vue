@@ -25,7 +25,7 @@
           </div>
 
           <!-- Kolom kanan -->
-          <div class="md:col-span-1 col-span-1 rounded-md w-full h-auto">
+          <div class="md:col-span-1 col-span-1 rounded-md w-full  h-auto">
             <!-- swiper -->
             <div>
               <!-- swiper -->
@@ -45,7 +45,7 @@
                   },
                   next: {
                     translate: ['100%', 0, 0],
-                  },
+                  },  
                 }"
               >
                 <SwiperSlide v-for="slide in event" :key="slide">
@@ -71,7 +71,7 @@
                       >
                         <a
                           class="text-xl"
-                          href="https://www.youtube.com/@jahiddev?sub_confirmation=1"
+                          href=""
                         >
                         {{ slide.title }}
                         </a>
