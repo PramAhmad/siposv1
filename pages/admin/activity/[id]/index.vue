@@ -13,7 +13,7 @@
   <div class="grid grid-cols-2 gap-4 mb-6">
     <div>
 
-      <img :src="fotopath" alt="">
+      <img :src="path" alt="">
     </div>
       <div>
         <h2 class="text-xl font-semibold">Informasi Aktivitas</h2>
@@ -33,7 +33,7 @@
   <form method="post" @submit.prevent="updateActivity">
         <CardBox>
           <FormField label="New Profile" help="Max 500kb">
-            <FotoActivity model:path="fotopath"/>
+            <FotoActivity v-model:path="path"/>
           </FormField>
 
           <FormField label="title" help="Masukan Title baru">
@@ -75,13 +75,13 @@
 
 const supabase = useSupabaseClient()
 const $route = useRoute()
-const fotopath = ref('')
+const path = ref('')
 const desc = ref('')
 const title = ref('')
 const loading = ref(false)
 const getSingleActivity = async()=>{
     const {data,error} = await supabase.from("activity").select().eq('id',$route.params.id)
-   fotopath.value = data[0].image
+   path.value = data[0].image
    desc.value = data[0].desc
     title.value = data[0].title
     if(error){
@@ -91,9 +91,10 @@ const getSingleActivity = async()=>{
 const updateActivity = async ()=>{
     loading.value = true
     // validate jika tidak ada foto
-    if(fotopath.value){
+    console.log(path.value)
+    if(!path.value){
 
-        const {data,error} = await supabase.from("activity").update({image:fotopath.value,title:title.value,desc:desc.value}).eq('id',$route.params.id)
+        const {data,error} = await supabase.from("activity").update({title:title.value,desc:desc.value}).eq('id',$route.params.id)
         if(error){
             console.log(error)
         }
@@ -102,7 +103,8 @@ const updateActivity = async ()=>{
         loading.value = false
     }
     else{
-        const {data,error} = await supabase.from("activity").update({title:title.value,desc:desc.value}).eq('id',$route.params.id)
+        
+      const {data,error} = await supabase.from("activity").update({image:path.value,title:title.value,desc:desc.value}).eq('id',$route.params.id)
         if(error){
             console.log(error)
         }

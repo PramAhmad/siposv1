@@ -18,7 +18,31 @@ const payment = ref([])
 const $route = useRoute()
 const loading = ref(false)
 const alert = ref(false)
+const fb = ref('')
+const twit = ref('')
+const tiktok = ref('')
+const ig = ref('')
+const linkid = ref('')
+const alertsosmed = ref(false)
 
+const updateSosmed = async()=>{
+  alertsosmed.value = false
+  const {data,error} = await supabase.from('mahasiswa').update({
+    fb: fb.value,
+    twit: twit.value,
+    tiktok: tiktok.value,
+    ig: ig.value,
+    linkid: linkid.value
+  }).eq('id', $route.params.id)
+  if(error){
+    console.log(error)
+  }
+  else{
+    
+    alertsosmed.value = true
+    getSingleMahasiswa()
+  }
+}
 const updateMahasiswa = async()=>{
   console.log(path.value)
     // validate jika foto kosong jangan update fotonya
@@ -62,6 +86,7 @@ const updateMahasiswa = async()=>{
 
 
 
+
 const getSingleMahasiswa = async() => {
     const { data, error } = await supabase.from("mahasiswa").select().eq('id', $route.params.id)
     if (data[0]) {
@@ -70,6 +95,12 @@ const getSingleMahasiswa = async() => {
         npm.value = mahasiswaData.npm || '';
         kelas.value = mahasiswaData.kelas || '';
         path.value = mahasiswaData.foto || '';
+        fb.value = mahasiswaData.fb || '';
+        twit.value = mahasiswaData.twit || '';
+        tiktok.value = mahasiswaData.tiktok || '';
+        ig.value = mahasiswaData.ig || '';
+        linkid.value = mahasiswaData.linkid || '';
+
     }
     if (error) {
         console.log(error)
@@ -139,7 +170,7 @@ onMounted(() => {
             v-model="nama"
               :icon="mdiAccount"
               name="nama"
-              required
+              
               autocomplete="nama"
             />
           </FormField>
@@ -149,7 +180,7 @@ onMounted(() => {
               :icon="mdiMail"
               type="number"
               name="npm"
-              required
+              
               autocomplete="npm"
             />
           </FormField>
@@ -210,7 +241,77 @@ onMounted(() => {
     </tbody>
   </table>
 </CardBox>
+  <!-- form sosmed -->
+  <SectionTitleLineWithButton :icon="mdiAccount" main  title="Social Media " class="mt-20">
+        
+        </SectionTitleLineWithButton>
+        <!-- alert sosmed -->
+        <NotificationBarInCard v-if="alertsosmed" class="mb-6" type="success">
+          Data berhasil di update
+        </NotificationBarInCard>
 
+  <form method="post" @submit.prevent="updateSosmed">
+        <CardBox>
+        
+
+          <FormField label="facebook" help="Masukan facebook baru">
+            <FormControl
+            v-model="fb"
+              :icon="mdiAccount"
+              name="facebook"
+              
+              autocomplete="facebook"
+            />
+          </FormField>
+          <FormField label="Twitter" help="Masukan Twitter baru">
+            <FormControl
+              v-model="twit"
+              :icon="mdiMail"
+              type="text"
+              name="twit"
+              
+              autocomplete="twit"
+            />
+          </FormField>
+          <FormField label="tiktok" help="Masukan tiktok baru">
+            <FormControl
+              v-model="tiktok"
+              :icon="mdiMail"
+              type="text"
+              name="tiktok"
+              
+              autocomplete="tiktok"
+            />
+          </FormField>
+          <FormField label="ig" help="Masukan ig baru">
+            <FormControl
+              v-model="ig"
+              :icon="mdiMail"
+              type="text"
+              name="ig"
+              
+              autocomplete="ig"
+            />
+          </FormField>
+          <FormField label="linkid" help="Masukan linkid baru">
+            <FormControl
+              v-model="linkid"
+              :icon="mdiMail"
+              type="text"
+              name="linkid"
+              
+              autocomplete="linkid"
+            />
+          </FormField>
+       
+            <BaseButtons>
+              <button type="submit" class="py-2 px-5 bg-sky-600 rounded-md text-white hover:bg-sky-500">Update</button>
+
+              <BaseButton color="info" label="Options" outline />
+            </BaseButtons>
+         
+          </CardBox>
+        </form>
     </SectionMain>
   </NuxtLayout>
 </template>

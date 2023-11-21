@@ -155,7 +155,7 @@
             </div>
           </div>
           <div class="w-full col-span-2 md:col-span-1">
-            <h3 class="text-white text-center text-lg mt-10 md:mt-0 mb-0 md:text-3xl md:mt-10 font-semibold  border-b-2 border-white md:mb-10  ">Sampaikan perasaan yang tidak dapat kalian sampaikan lewat sifess ini⭐⭐</h3> 
+            <h3 class="text-white text-center text-lg mt-10 md:mt-0 mb-0 md:text-3xl font-semibold  border-b-2 border-white md:mb-10  ">Sampaikan perasaan yang tidak dapat kalian sampaikan lewat sifess ini⭐⭐</h3> 
   
             <Swiper
               :modules="[SwiperAutoplay, SwiperEffectCreative]"
@@ -179,7 +179,7 @@
              
                 <SwiperSlide v-for="data in datas" :key="data.id">
                   <div
-                    class="md:max-w-1/3 ml-2 w-full bg-white border-4 border-slate-100 rounded-sm p-5 md:mt-16 mt-5"
+                    class="md:max-w-1/3  ml-2 w-full bg-white border-4 border-slate-100 rounded-sm p-5 md:mt-16 mt-5"
                   >
                     <div class="flex justify-end">
                       <div class="bg-[#63B4FF] text-white rounded-md px-2 py-1">
