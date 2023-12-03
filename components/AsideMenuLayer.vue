@@ -63,7 +63,7 @@ const Logout = async()=>
           class="text-center flex-1 lg:text-left lg:pl-6 xl:text-center xl:pl-0"
         >
          <!-- logo -->
-         <img src="@/assets/image/logo.png" class="w-[200px] h-[150px]" alt="">
+         <!-- <img src="@/assets/image/logo.png" class="w-[200px] h-[150px]" alt=""> -->
         </div>
         <button
           class="hidden lg:inline-block xl:hidden p-3"

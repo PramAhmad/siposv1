@@ -36,7 +36,7 @@ if (
 }
 
 /* Default title tag */
-const defaultDocumentTitle = "Information System";
+const defaultDocumentTitle = "Sipos SMKN 4 Tasikmalaya";
 
 /* Set document title from route meta */
 router.afterEach((to) => {

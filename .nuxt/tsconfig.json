@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "strict": true,
     "allowJs": true,
-    "baseUrl": "/home/nehphren/Documents/project/sistem_informasi/Information_System",
+    "baseUrl": "/home/nehphren/Documents/project/smkn4/siposv1",
     "noEmit": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -19,67 +19,67 @@
     ],
     "paths": {
       "~": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System"
+        "/home/nehphren/Documents/project/smkn4/siposv1"
       ],
       "~/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/*"
       ],
       "@": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System"
+        "/home/nehphren/Documents/project/smkn4/siposv1"
       ],
       "@/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/*"
       ],
       "~~": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System"
+        "/home/nehphren/Documents/project/smkn4/siposv1"
       ],
       "~~/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/*"
       ],
       "@@": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System"
+        "/home/nehphren/Documents/project/smkn4/siposv1"
       ],
       "@@/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/*"
       ],
       "assets": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/assets"
+        "/home/nehphren/Documents/project/smkn4/siposv1/assets"
       ],
       "assets/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/assets/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/assets/*"
       ],
       "public": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/public"
+        "/home/nehphren/Documents/project/smkn4/siposv1/public"
       ],
       "public/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/public/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/public/*"
       ],
       "#app": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/nuxt/dist/app"
+        "/home/nehphren/Documents/project/smkn4/siposv1/node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/nuxt/dist/app/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/nuxt/dist/app/compat/vue-demi"
+        "/home/nehphren/Documents/project/smkn4/siposv1/node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "pinia": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/pinia/dist/pinia"
+        "/home/nehphren/Documents/project/smkn4/siposv1/node_modules/pinia/dist/pinia"
       ],
       "#vue-router": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/.nuxt/vue-router"
+        "/home/nehphren/Documents/project/smkn4/siposv1/.nuxt/vue-router"
       ],
       "#imports": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/.nuxt/imports"
+        "/home/nehphren/Documents/project/smkn4/siposv1/.nuxt/imports"
       ],
       "#build": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/.nuxt"
+        "/home/nehphren/Documents/project/smkn4/siposv1/.nuxt"
       ],
       "#build/*": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/.nuxt/*"
+        "/home/nehphren/Documents/project/smkn4/siposv1/.nuxt/*"
       ],
       "#components": [
-        "/home/nehphren/Documents/project/sistem_informasi/Information_System/.nuxt/components"
+        "/home/nehphren/Documents/project/smkn4/siposv1/.nuxt/components"
       ]
     }
   },
@@ -87,14 +87,14 @@
     "./nuxt.d.ts",
     "../**/*",
     "../**/*",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System/*",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System/*",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System/*",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System",
-    "/home/nehphren/Documents/project/sistem_informasi/Information_System/*"
+    "/home/nehphren/Documents/project/smkn4/siposv1",
+    "/home/nehphren/Documents/project/smkn4/siposv1/*",
+    "/home/nehphren/Documents/project/smkn4/siposv1",
+    "/home/nehphren/Documents/project/smkn4/siposv1/*",
+    "/home/nehphren/Documents/project/smkn4/siposv1",
+    "/home/nehphren/Documents/project/smkn4/siposv1/*",
+    "/home/nehphren/Documents/project/smkn4/siposv1",
+    "/home/nehphren/Documents/project/smkn4/siposv1/*"
   ],
   "exclude": [
     "../dist",

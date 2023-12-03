@@ -6,7 +6,7 @@ import {
   mdiHistory,
   mdiEvernote,
   mdiAlertPlus,
-  mdiAlarm,
+  mdiAlertCircleCheckOutline,
   mdiMail,
   mdiMailbox,
 } from "@mdi/js";
@@ -22,61 +22,61 @@ export default
 
   },
   {
-    label: "Mahasiwa",
+    label: "Tata Tertib",
+    icon: mdiAlertCircleCheckOutline,
+    menu: [
+      {
+        to: "/admin/tata-tertib",
+        label: "List Tata Tertib",
+      },
+      {
+        to: "/admin/tata-tertib/tambah",
+        label: "Tambah Tata Tertib", 
+      },
+    ],
+  },
+  {
+    label: "Siswa",
     icon: mdiAccountCircle,
     menu: [
       {
-        to: "/admin/mahasiswa",
-        label: "List Mahasiswa",
+        to: "/admin/siswa",
+        label: "List Siswa",
       },
       {
-        to: "/admin/mahasiswa/tambah",
-        label: "Tambah Mahasiswa  ",
+        to: "/admin/siswa/tambah",
+        label: "Tambah Siswa", 
       },
     ],
   },
   {
-    label: "Sifess",
+    label: "Jenis Tata Tertib",
     icon: mdiMail,
     menu: [
       {
-        to: "/admin/menfest",
-        label: "List Sifess",
+        to: "/admin/jenis-tata-tertib",
+        label: "List Jenis ",
       },
       {
-        to: "/admin/menfest/request",
-        label: "Request Sifess  ",
+        to: "/admin/jenis-tata-tertib/tambah",
+        label: "Tambah Jenis ", 
       },
-      {
-        to: "/admin/menfest/disable",
-        label: "Disabled Sifess  ",
-   
-      }
     ],
   },
   {
-    to: "/admin/payment",
-    label: "Pembayaran",
-    icon: mdiHandCoin,
-  },
-  {
-    to: "/admin/activity",
-    label: "Activity",
-    icon: mdiHistory,
-  },
-  {
-    to: "/admin/masukan",
-    label: "Masukan",
-    icon: mdiMailbox,
-  },
-  {
-    to: "/admin/user",
-  label: "User",
+    label: "User",
     icon: mdiAccount,
+    menu: [
+      {
+        to: "/admin/user",
+        label: "List user ",
+      },
+      {
+        to: "/admin/user/tambah",
+        label: "Tambah user ", 
+      },
+    ],
   },
- 
- 
-  
 
   
 ];

@@ -1,5 +1,5 @@
 
-import { defuFn } from '/home/nehphren/Documents/project/sistem_informasi/Information_System/node_modules/defu/dist/defu.mjs'
+import { defuFn } from '/home/nehphren/Documents/project/smkn4/siposv1/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 
